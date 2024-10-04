@@ -1,14 +1,20 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import AppRoutes from './routes/AppRoutes';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { RouterProvider } from 'react-router-dom'
+import './App.css'
+import { AuthProvider } from './contexts/Auth'
+import AppRoutes from './routes/Routes'
 
 function App() {
+
   return (
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
-  );
+    <>
+      <AuthProvider>
+        {/* <BrowserRouter>
+        <AppRoutes/>
+        </BrowserRouter> */}
+        <RouterProvider router={AppRoutes}/>
+      </AuthProvider>
+    </>
+  )
 }
 
-export default App;
+export default App

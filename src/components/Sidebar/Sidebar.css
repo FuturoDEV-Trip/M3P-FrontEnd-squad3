@@ -1,0 +1,73 @@
+.elements-sidebar a{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #595775;
+  color: #f1e0d6;
+  align-items: center;
+  padding: 25px;
+  flex-wrap: wrap;
+  height: 100%;
+  text-decoration: none;
+  text-transform: none;
+}
+.sidebar-logo {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+}
+h6{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+.user {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-right: auto;
+  margin-left: 10px;
+  flex-wrap: wrap;
+}
+.home {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-right: auto;
+  margin-left: 10px;
+  color: #f1e0d6;
+}
+.home-icon {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-right: auto;
+  margin-left: 10px;
+  color: #f1e0d6;
+}
+.locations {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-right: auto;
+  margin-left: 10px;
+  color: #f1e0d6;
+}
+.exit {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-right: auto;
+  margin-left: 10px;
+  color: #f1e0d6;
+}
+.logout btn{
+  background-color: transparent;
+  border: none;
+  color: #f1e0d6;
+}
+.mappin a{
+  color: #f1e0d6;
+  text-decoration: none;
+}
