@@ -1,0 +1,64 @@
+/* Estilos básicos do navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: #eaf4f7; /* Cor azul igual ao botão "Ver Detalhes" */
+  padding: 10px 20px;
+  color: white;
+}
+
+/* Logo e/ou nome da aplicação */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  height: 90px; /* Ajusta o tamanho da logo */
+  margin-right: 10px;
+}
+
+/* Menu de navegação */
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  margin-left: 20px;
+  flex: 1;
+}
+
+.navbar-menu li {
+  margin-right: 15px;
+}
+
+.navbar-menu a {
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navbar-menu a:hover {
+  text-decoration: underline;
+}
+
+/* Seção do usuário */
+.navbar-user {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-user span {
+  margin-right: 10px;
+}
+
+.navbar-user button {
+  padding: 5px 10px;
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.navbar-user button:hover {
+  background-color: #e74c3c;
+}
