@@ -69,7 +69,11 @@ function Dashboard() {
           />
         </div>
         <div className="containerTableAndMap">
-          <div className="table-container table-primary">
+          <div className="titleTableAndMap">
+          <h4>Locais Cadastrados</h4> <h4>Mapa</h4>
+          </div>
+          <div className="tableAndMap">
+          <div className="table-container">
             <Table locais={Locais} onRowClick={handleRowClick} />
           </div>
           <div className="mapmarker">
@@ -81,6 +85,7 @@ function Dashboard() {
               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
               <MapMarker locais={Locais} selectedLocation={selectedLocation} />
             </MapContainer>
+          </div>
           </div>
         </div>
       </div>
