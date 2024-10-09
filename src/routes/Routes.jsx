@@ -9,24 +9,28 @@ import SignUp from "../pages/SignUp/SignUp";
 
 export const AppRoutes = createBrowserRouter([
   {
-    path: "/",
+    path: "/", // Dashboard como a página inicial e pública
+    element: <Dashboard />,
+  },
+  {
+    path: "/login", // Página de login
     element: <Login />,
   },
   {
-    path: "/SignUp",
+    path: "/signup", // Página de cadastro
     element: <SignUp />,
   },
   {
-    path: "/dashboard",
-    element: <PrivateRoute />,
+    path: "/dashboard", // Manter o dashboard acessível e outras rotas privadas
+    element: <PrivateRoute />, // Protegendo as rotas filhas com PrivateRoute
     children: [
       {
-        path: "",
+        path: "", // Essa rota serve para acessar o dashboard
         element: <Dashboard />,
       },
-          {
-            path:'cadastrarLocais',
-            element:<RegistrationLocation/>,
+      {
+        path: "cadastrarLocais",
+        element: <RegistrationLocation />,
       },
       {
         path: "locais/:id",
@@ -39,6 +43,7 @@ export const AppRoutes = createBrowserRouter([
     ],
   },
 ]);
+
 export default AppRoutes;
 // export function AppRoutes() {
 //   return (
