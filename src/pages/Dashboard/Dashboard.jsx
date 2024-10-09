@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "leaflet/dist/leaflet.css";
+import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { Card } from "../../components/Cards/Card";
@@ -55,8 +56,9 @@ function Dashboard() {
         <Sidebar className="elements-sidebar" />
       </div>
       <div className="main-content">
-        <h1>Dashboard</h1>
+        <h1>Dashboard</h1> 
         <div className="containerCards">
+
           <Card
             title="Usuários Cadastrados"
             count={usuarios.length}
