@@ -22,7 +22,7 @@ function Dashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3333/Destino/'); 
+        const response = await axios.get('http://localhost:3333/destinos/'); 
         const data = response.data; 
         
         setLocais(data);
@@ -37,7 +37,7 @@ function Dashboard() {
   useEffect(() => {
     const userData = async () => {
       try {
-        const response = await axios.get("http://localhost:3333/Usuario/");
+        const response = await axios.get("http://localhost:3333/usuarios/");
         
         if (response.status !== 200) {
           throw new Error("Erro ao buscar usuários");
