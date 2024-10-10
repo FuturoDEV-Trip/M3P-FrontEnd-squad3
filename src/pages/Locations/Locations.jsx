@@ -8,46 +8,55 @@ import "./Locations.css";
 
 function Locations() {
   const [Locais, setLocais] = useState([]);
-  const userId = useAuth();
-
+  const { user } = useAuth(); 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await api("/Destinos/"); 
-        if (!response.ok) {
+        const response = await api.get("/Destinos/");
+        if (response.status !== 200) {
           throw new Error("Erro ao buscar Destinos");
         }
-        const data = await response.json();
-        setLocais(data); 
+        const data = response.data; 
+        setLocais(data);
       } catch (error) {
         console.error("Erro ao buscar Destinos:", error);
       }
     };
     fetchData();
   }, []);
-  
 
+  // Função para deletar um destino
   async function deleteLocation(id) {
     try {
-      const locationResponse = await api(`/Destinos/${id}`); // Altere para "/Destinos/"
-      const location = await locationResponse.json();
-     
-      if (userId.user.id === location.usuarioId) {
-        const response = await api(`/Destinos/${id}`, {
-          method: "DELETE",
-        });
-        if (response.ok) {
-          const newLocais = Locais.filter((item) => item.id !== id); // Manter a variável de estado ou mudar para algo como "Destinos"
-          setLocais(newLocais); // Manter a variável ou mudar para "setDestinos"
+      const response = await api.get(`/Destinos/${id}`); 
+      const location = response.data;
+
+      // Verifica se o usuário logado é o dono do destino
+      if (user.id === location.usuario_id) {
+        const deleteResponse = await api.delete(`/Destinos/${id}`); 
+        if (deleteResponse.status === 204) {
+          const newLocais = Locais.filter((item) => item.id !== id); 
+          setLocais(newLocais); 
           alert("Destino excluído com sucesso!");
         }
       } else {
-        alert("Você não tem permissão para excluir este destino");
+        alert("Você não tem permissão para excluir este destino.");
       }
     } catch (error) {
       console.error("Erro ao excluir destino:", error);
     }
-  }  
+  }
+
+  // Função para lidar com tentativa de edição sem permissão
+  const handleEditPermission = (location) => {
+    if (user.id === location.usuario_id) {
+      return `/dashboard/destinos/${location.id}`;
+    } else {
+      alert("Você não tem permissão para editar este destino.");
+      return "#"; 
+    }
+  };
+
   return (
     <div className="container-List">
       <div className="list-elements-sidebar">
@@ -55,15 +64,14 @@ function Locations() {
       </div>
       <div className="list-container">
         <div className="titulo-list">
-          <h1>Lista dos Destinos</h1> {/* Alterado para "Destinos" */}
+          <h1>Lista dos Destinos</h1>
         </div>
         <table className="table table-borderless custom-table table-container">
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nome do Destino</th> {/* Alterado */}
+              <th>Nome do Destino</th>
               <th>Cidade</th>
-              <th>Estado</th>
               <th>Descrição</th>
               <th>Latitude</th>
               <th>Longitude</th>
@@ -71,23 +79,20 @@ function Locations() {
             </tr>
           </thead>
           <tbody>
-            {Locais.map((item) => (  // Se preferir, renomeie Locais para Destinos
+            {Locais.map((item) => (
               <tr key={item.id}>
                 <td>{item.id}</td>
-                <td>{item.destino_nome}</td> {/* Altere para refletir a estrutura do destino */}
+                <td>{item.destino_nome}</td>
                 <td>{item.localizacao}</td>
-                <td>{item.estado}</td>
                 <td>{item.descricao}</td>
                 <td>{item.latitude}</td>
                 <td>{item.longitude}</td>
                 <td className="table-icon">
-                  <Link to={`/dashboard/destinos/${item.id}`}> {/* Altere para "/destinos/" */}
+                  {/* Verifica permissão antes de permitir a navegação para a edição */}
+                  <Link to={handleEditPermission(item)}>
                     <PenBoxIcon size={28} className="pen" id="pen" />
                   </Link>
-                  <button
-                    onClick={() => deleteLocation(item.id)}
-                    className="delete"
-                  >
+                  <button onClick={() => deleteLocation(item.id)} className="delete">
                     <Trash2 size={28} />
                   </button>
                 </td>
@@ -97,6 +102,7 @@ function Locations() {
         </table>
       </div>
     </div>
-  )
+  );
 }
-export default Locations
+
+export default Locations;
