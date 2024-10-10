@@ -1,3 +1,5 @@
+import axios from "axios";
+
 /**
  * 
  * @param {String} endpoint 
@@ -6,8 +8,8 @@
  */
 
 export function api(endpoint, init) {
-    const url = 'http://localhost:3333' + endpoint
-    
+    const url = 'http://localhost:3000' + endpoint
 
-    return fetch(url, init)
+
+    return axios({ url: url, init, ...init });
 }

@@ -15,20 +15,31 @@ export function AuthProvider({ children }) {
 
   async function signIn({ email, password }) {
     try {
-      const response = await api(`/usuario?email=${email}&senha=${password}`);
-     
-      const data = await response.json();
-     
+      // const response = await api(`/auth/login?email=${email}&senha=${password}`);
+      const response = await api("/auth/login", {
+        method: "POST",
+        data: { email, senha: password },
+      });
 
-      if (data.length > 0) {
-        const usuario = data[0];
-        if (usuario.email === email && usuario.senha === password) {
-          setUser(usuario);
-          localStorage.setItem("insightViagem365", JSON.stringify(usuario));
-          return true;
-        }
-      }
-      return false;
+      // const data = await response.json();
+      const data = response.data;
+
+         if (data.user) {
+           setUser(data.user);
+           localStorage.setItem("insightViagem365", JSON.stringify(data.user));
+           return true;
+         }
+         return false;
+
+      // if (data.length > 0) {
+      //   const usuario = data[0];
+      //   if (usuario.email === email && usuario.senha === password) {
+      //     setUser(usuario);
+      //     localStorage.setItem("insightViagem365", JSON.stringify(usuario));
+      //     return true;
+      //   }
+      // }
+      // return false;
     } catch (error) {
       console.error("Error during sign in:", error);
       return false;
