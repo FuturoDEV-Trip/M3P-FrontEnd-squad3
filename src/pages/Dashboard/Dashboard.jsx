@@ -10,6 +10,7 @@ import { Table } from "../../components/Table/Table";
 import { api } from "../../services/api";
 import { AuthContext } from "../../contexts/Auth"; 
 import "./Dashboard.css";
+import axios from 'axios';
 
 function Dashboard() {
   const [Locais, setLocais] = useState([]);
@@ -21,11 +22,9 @@ function Dashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await api("/Destino/");
-        if (!response.ok) {
-          throw new Error("Erro ao buscar Locais");
-        }
-        const data = await response.json();
+        const response = await axios.get('http://localhost:3333/Destino/'); 
+        const data = response.data; 
+        
         setLocais(data);
       } catch (error) {
         console.error("Erro ao buscar Locais:", error);
@@ -38,16 +37,19 @@ function Dashboard() {
   useEffect(() => {
     const userData = async () => {
       try {
-        const response = await api("/Usuario/");
-        if (!response.ok) {
-          throw new Error("Erro ao buscar usuarios");
+        const response = await axios.get("http://localhost:3333/Usuario/");
+        
+        if (response.status !== 200) {
+          throw new Error("Erro ao buscar usuários");
         }
-        const data = await response.json();
-        setUsuarios(data);
+        
+        const data = response.data;
+        setUsuarios(data); 
       } catch (error) {
-        console.error("Erro ao buscar usuarios:", error);
+        console.error("Erro ao buscar usuários:", error);
       }
     };
+    
     userData();
   }, []);
 
