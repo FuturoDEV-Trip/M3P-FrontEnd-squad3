@@ -1,0 +1,11 @@
+/* Folha de estilo global */
+
+:root{
+
+    --primary-color: #F9A620; /* Laranja */
+    --secondary-color: #A8D5E2; /* Azul Claro */
+    --highlight-color: #FFD449; /* Amarelo */
+    --text-color: #548C2F; /* Verde Médio */
+    --muted-color: #104911; /* Verde Escuro */   
+}
+

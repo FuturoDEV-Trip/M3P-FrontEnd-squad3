@@ -1,143 +1,147 @@
-.container {
-  min-width: 100%;
-  min-height: 100vh;
-  animation: changeBackgroundImage 15s infinite;
+.row {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  overflow: hidden;
+  height: 100vh;
 }
-.form-container-login {
+
+.gradient-bg {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 500px;
-  height: 650px;
-  border-radius: 150px 0 150px 0px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(to right, #F9A620, #A8D5E2, #104911);
+  padding: 40px;
   color: white;
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
-  font-weight: 300;
-  text-align: flex-start;
+  text-align: center;
+  
 }
-.button-form-div {
+
+.text-container {
+  max-width: 400px;
+  text-align: center;
+}
+
+.text-container h4 {
+  font-size: 2rem;
+  color: var(---muted-color); 
+}
+
+.login-section {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-h5{
-  color: #bf988f;
-  font-size: 1.5rem;
-  font-weight: 500;
-  text-shadow: #8a6562 8px 8px 3px;
-}
-.logo-login {
-  width: 120px;
-  height: 120px;
-  border-radius: 100%;
-}
-.titulo-login{
-  color: #bf988f;
-}
-.text-span {
-  display: inline-block;
-  text-align: center;
-  margin-top: 10px;
-  font-size: 1rem;
-  color: #bf988f;
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
-.text-span .text-signup {
-  margin-left: 5px; 
-  color: #bf988f;
+.form-container-login {
+  width: 100%;
+  max-width: 400px;
+}
+
+h1.titulo-login {
+  color: var(--muted-color);
+  font-size: 2rem;
   font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 0.3s ease;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: none;
+  text-transform: none;
 }
 
-.text-span .text-signup:hover {
-  color: #9d7a71; 
+.logo-login {
+  width: 220px;
+  height: 220px;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .input {
   width: 100%;
   background-color: #f1f1f1;
-  border: 1px solid #aba6bf;
+  border: 2px solid var(--highlight-color);
   border-radius: 5px;
   color: #333;
-  padding: 5px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  font-size: 1rem;
   outline: none;
-  font-size: 16px;
+  transition: border-color 0.3s ease;
 }
 
-input:focus {
-  border-color: #bf988f;
-  box-shadow: 0 0 8px rgba(191, 152, 143, 0.4); 
-  background-color: #fff;
+.input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(249, 166, 32, 0.4);
 }
+
 .btn-login {
-  width: 280px;
-  background-color: #595775;
-  color: #bf988f;
-  border:1px solid #aba6bf;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px;
   border-radius: 5px;
   cursor: pointer;
-  text-transform: uppercase;
-  font-weight: 500;
-  letter-spacing: 1px;
-  height: 40px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: var(--highlight-color);
+}
+
+.text-span {
   margin-top: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted-color); 
+  display: block;
+  width: 100%;
 }
 
-button:hover {
-  background-color: #9d7a71;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: #595775;
+.text-signup {
+  margin-left: 5px;
+  color: var(--muted-color); 
+  text-decoration: none;
+  display: block; 
+  text-align: center; 
+  font-weight: bold;
 }
 
-button:focus {
-  outline: none;
-  box-shadow: 0 0 8px rgba(191, 152, 143, 0.4);
+.text-signup:hover {
+  color: var(--highlight-color); /* Amarelo no hover */
 }
 
-button:active {
-  transform: scale(0.98);
-  background-color: #8a6562;
+h5 {
+  color: var(--muted-color); /* Verde escuro para InsightViagem365 */
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center; 
 }
 
-.form-container-login {
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
+.video-bg {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  justify-content: center;
   align-items: center;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
-@keyframes changeBackgroundImage {
-  0% {
-    background-image: url("images/denys-nevozhai-guNIjIuUcgY-unsplash.jpg");
-  }
-  25% {
-    background-image: url("images/marten-bjork-wGu1pzDSm3g-unsplash.jpg");
-  }
-  50% {
-    background-image: url("images/jake-blucker-tMzCrBkM99Y-unsplash.jpg");
-  }
-  75% {
-    background-image: url("images/luca-bravo-O453M2Liufs-unsplash.jpg");
-  }
-  100% {
-    background-image: url("images/ryan-spencer-XGKaRnWjv1c-unsplash.jpg");
-  }
+#video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  z-index: -1;
+  filter: brightness(0.6); 
+}
+
+.text-container {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
 }
