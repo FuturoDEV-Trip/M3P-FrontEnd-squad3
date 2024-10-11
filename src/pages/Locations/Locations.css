@@ -1,9 +1,10 @@
 .container-List {
-  background-color: #f1e0d6;
+  background-color: #A8D5E2;
   display: flex;
   flex-direction: row; 
   min-height: 100vh; 
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .list-elements-sidebar {
@@ -34,7 +35,7 @@
   max-height: 450px;
   overflow-y: auto;
   width: 100%;
-  background-color: transparent;
+  background-color:#FFF ;
   border: none;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.9);
@@ -48,12 +49,13 @@
 .table-container thead {
   position: sticky;
   top: 0;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #fff ;
   z-index: 10;
 }
 
 .table-container tbody tr {
-  background-color: transparent;
+  background-color: #fff;
+  color: #104911;
 }
 
 .table-container::-webkit-scrollbar {
@@ -61,48 +63,50 @@
 }
 
 .table-container::-webkit-scrollbar-track {
-  background-color: #f1e0d6;
+  background-color:    #A8D5E2;
   border-radius: 8px;
 }
 
 .table-container::-webkit-scrollbar-thumb {
-  background-color: #bf988f;
+  background-color: #fff;
   border-radius: 8px;
 }
 
 .table-container::-webkit-scrollbar-thumb:hover {
-  background-color: #595775;
+  background-color: #548C2F;
 }
 
 .pen {
-  color: #595775;
+  color: #548C2F;
   margin-bottom: 25px;
 }
 
 .pen:hover {
-  color: #bf988f;
+  color: #FFD449;
 }
 
 .delete {
-  border: none;
-  color: #595775;
+  color: #548C2F;
+  border: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  transition: none !important;
+  padding: 0 !important;
+  transform: none !important;
 }
 
-#btn-delete {
-  background-color: transparent;
-  border: none;
-  color: #595775;
+.delete:hover {
+  color: #FFD449;
 }
 
 .table-icon {
-  color: #595775;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
 .titulo-list {
-  color: #bf988f;
+  color: #ffffff;
   font-size: 24px;
   text-align: center;
   width: 100%;

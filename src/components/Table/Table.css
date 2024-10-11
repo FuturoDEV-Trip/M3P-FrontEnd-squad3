@@ -1,7 +1,7 @@
 .table-container {
   max-height: 450px;
   overflow-y: auto;
-  background-color: transparent;
+  background-color: #A8D5E2;
   border: none;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.9);
@@ -17,22 +17,22 @@
   z-index: 10;
 }
 .table-container tbody tr {
-  background-color: transparent;
+  background-color: #A8D5E2;
 }
 .table-container::-webkit-scrollbar {
   width: 8px;
 }
 .table-container::-webkit-scrollbar-track {
-  background-color: #f1e0d6;
+  background-color:#A8D5E2;
   border-radius: 8px;
 }
 .table-container::-webkit-scrollbar-thumb {
-  background-color: #bf988f;
+  background-color: #A8D5E2;
   border-radius: 8px;
 }
 .table-container::-webkit-scrollbar-thumb:hover {
-  background-color: #595775;
+  background-color: #A8D5E2;
 }
 .penbox{
-    color: #595775;
+    color: #548C2F;
 }

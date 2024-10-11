@@ -8,9 +8,9 @@ import "./Locations.css";
 
 function Locations() {
   const [Locais, setLocais] = useState([]);
-  const userId = useAuth();
-
+  const { user } = useAuth(); 
   useEffect(() => {
+<<<<<<< HEAD
     useAxios("/destinos").then((response) => {
       setLocais(response.data);
     });
@@ -27,10 +27,14 @@ function Locations() {
     //   }
     // };
     // fetchData();
+=======
+>>>>>>> feat/location-css
   }, []);
 
+  // Função para deletar um destino
   async function deleteLocation(id) {
     try {
+<<<<<<< HEAD
       const locationResponse = await useAxios(`/destinos/${id}`);
       const location = await locationResponse.json();
    
@@ -42,14 +46,27 @@ function Locations() {
           const newLocais = Locais.filter((item) => item.id !== id);
           setLocais(newLocais);
           alert("Local excluído com sucesso!");
+=======
+>>>>>>> feat/location-css
         }
       } else {
-        alert("Você não tem permissão para excluir este local");
+        alert("Você não tem permissão para excluir este destino.");
       }
     } catch (error) {
-      console.error("Erro ao excluir local:", error);
+      console.error("Erro ao excluir destino:", error);
     }
   }
+
+  // Função para lidar com tentativa de edição sem permissão
+  const handleEditPermission = (location) => {
+    if (user.id === location.usuario_id) {
+      return `/dashboard/destinos/${location.id}`;
+    } else {
+      alert("Você não tem permissão para editar este destino.");
+      return "#"; 
+    }
+  };
+
   return (
     <div className="container-List">
       <div className="list-elements-sidebar">
@@ -57,14 +74,17 @@ function Locations() {
       </div>
       <div className="list-container">
         <div className="titulo-list">
-          <h1>Lista dos locais</h1>
+          <h1>Lista dos Destinos</h1>
         </div>
-        <table className="table table-borderless table-primary custom-table table-hover table-container">
+        <table className="table table-borderless custom-table table-container">
           <thead>
             <tr>
               <th>ID</th>
+<<<<<<< HEAD
               <th>Nome do Local</th>
               <th>Localização</th>
+=======
+>>>>>>> feat/location-css
               <th>Descrição</th>
               <th>Latitude</th>
               <th>Longitude</th>
@@ -81,15 +101,12 @@ function Locations() {
                 <td>{item.latitude}</td>
                 <td>{item.longitude}</td>
                 <td className="table-icon">
-                  <Link to={`/dashboard/locais/${item.id}`}>
+                  {/* Verifica permissão antes de permitir a navegação para a edição */}
+                  <Link to={handleEditPermission(item)}>
                     <PenBoxIcon size={28} className="pen" id="pen" />
                   </Link>
-                  <button
-                    onClick={() => deleteLocation(item.id)}
-                    className="btn-delete"
-                    id="btn-delete"
-                  >
-                    <Trash2 size={28} className="delete" />
+                  <button onClick={() => deleteLocation(item.id)} className="delete">
+                    <Trash2 size={28} />
                   </button>
                 </td>
               </tr>
@@ -100,4 +117,5 @@ function Locations() {
     </div>
   );
 }
+
 export default Locations;

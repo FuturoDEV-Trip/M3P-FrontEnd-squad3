@@ -123,16 +123,14 @@
   ],
   "Locais": [
     {
-      "id": "1",
-      "cep": "58322000",
-      "local": "Praia de Tambaba",
-      "cidade": "Conde",
-      "estado": "PB",
-      "pais": "Brasil",
-      "descricao": "A Praia de Tambaba é uma praia brasileira localizada no município de Conde, no estado da Paraíba. É conhecida por ser a primeira praia oficial de naturismo do Nordeste e por suas falésias avermelhadas. A praia é dividida em duas partes: a parte norte, onde o naturismo é obrigatório, e a parte sul, onde o naturismo é opcional.",
-      "latitude": -7.2411,
-      "longitude": -34.8256,
-      "usuarioId": "1"
+      "cep": "",
+      "local": "",
+      "cidade": "",
+      "estado": "",
+      "latitude": "",
+      "longitude": "",
+      "descricao": "",
+      "id": "1"
     },
     {
       "id": "2",
@@ -178,7 +176,7 @@
       "estado": "CE",
       "pais": "Brasil",
       "descricao": "A Praia de Canoa Quebrada é uma praia brasileira localizada no município de Aracati, no estado do Ceará. É conhecida por suas falésias avermelhadas, suas dunas, suas lagoas de água doce e por ser um dos destinos turísticos mais bonitos do Brasil. A praia é dividida em várias partes, como a Praia de Canoa Quebrada, a Praia de Majorlândia e a Praia de Quixaba.",
-      "latitude": -4.5281,
+      "latitude": "-4.5281",
       "longitude": -37.7036,
       "usuarioId": "5"
     },
@@ -207,6 +205,30 @@
       "logradouro": "Rua Josemar José Schmitt",
       "bairro": "Forquilhas",
       "usuarioId": "6"
+    },
+    {
+      "id": "b744",
+      "cep": "88056-780",
+      "local": "",
+      "cidade": "Florianópolis",
+      "estado": "(SC) Santa Catarina",
+      "latitude": "",
+      "longitude": "",
+      "descricao": "",
+      "usuarioId": "d3e0"
+    },
+    {
+      "id": "2701",
+      "cep": "85859620",
+      "local": "Cardeal",
+      "cidade": "Foz do Iguaçu",
+      "estado": "PR",
+      "latitude": "-25.50457",
+      "longitude": "-54.53541",
+      "descricao": "",
+      "logradouro": "Rua Cardeal",
+      "bairro": "Portal",
+      "usuarioId": "d3e0"
     }
   ]
 }
