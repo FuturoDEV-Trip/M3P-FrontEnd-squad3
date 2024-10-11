@@ -10,7 +10,6 @@ function Locations() {
   const [Locais, setLocais] = useState([]);
   const { user } = useAuth(); 
   useEffect(() => {
-<<<<<<< HEAD
     useAxios("/destinos").then((response) => {
       setLocais(response.data);
     });
@@ -27,14 +26,11 @@ function Locations() {
     //   }
     // };
     // fetchData();
-=======
->>>>>>> feat/location-css
   }, []);
 
   // Função para deletar um destino
   async function deleteLocation(id) {
     try {
-<<<<<<< HEAD
       const locationResponse = await useAxios(`/destinos/${id}`);
       const location = await locationResponse.json();
    
@@ -46,8 +42,6 @@ function Locations() {
           const newLocais = Locais.filter((item) => item.id !== id);
           setLocais(newLocais);
           alert("Local excluído com sucesso!");
-=======
->>>>>>> feat/location-css
         }
       } else {
         alert("Você não tem permissão para excluir este destino.");
@@ -80,11 +74,8 @@ function Locations() {
           <thead>
             <tr>
               <th>ID</th>
-<<<<<<< HEAD
               <th>Nome do Local</th>
               <th>Localização</th>
-=======
->>>>>>> feat/location-css
               <th>Descrição</th>
               <th>Latitude</th>
               <th>Longitude</th>
