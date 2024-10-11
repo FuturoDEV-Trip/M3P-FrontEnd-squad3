@@ -4,29 +4,38 @@ import { useForm } from "react-hook-form";
 import { Form } from "../../components/Form/Form";
 import { Sidebar } from "../../components/Sidebar/Sidebar";
 import { useAuth } from "../../contexts/Auth";
-import { api } from "../../services/api";
+import useAxios from "../../hooks/useAxios";
 import { destiny } from "../../services/serviceMaps";
 import "./RegisterLocations.css";
 
 function RegisterLocation() {
   const [Locais, setLocais] = useState([]);
-  const usuarioId = useAuth()
+  const usuarioId = useAuth();
 
   useEffect(() => {
-    const fetchData = async () => {
+    const dataAxios = async () => {
       try {
-        const response = await api("/Locais/");
-        if (!response.ok) {
-          throw new Error("Erro ao buscar Locais");
-        }
-        const data = await response.json();
-        setLocais(data);
+        const response = await useAxios("/destinos", { method: "GET" });
+        setLocais(response.data);
       } catch (error) {
-        console.error("Erro ao buscar Locais:", error);
+        console.error("Erro ao buscar destinos: ", error);
       }
     };
+    dataAxios();
+    // const fetchData = async () => {
+    //   try {
+    //     const response = await api("/destinos/");
+    //     if (!response.ok) {
+    //       throw new Error("Erro ao buscar Locais");
+    //     }
+    //     const data = await response.json();
+    //     setLocais(data);
+    //   } catch (error) {
+    //     console.error("Erro ao buscar Locais:", error);
+    //   }
+    // };
 
-    fetchData();
+    // fetchData();
   }, []);
   const { register, handleSubmit, formState, setValue, reset, watch } =
     useForm();
@@ -37,15 +46,20 @@ function RegisterLocation() {
       const locationData = {
         ...data,
         usuarioId: usuarioId.user.id,
-      }
-      const response = await api("/Locais", {
+      };
+      const response = await useAxios("/destinos", {
         method: "POST",
-        body: JSON.stringify(locationData),
+        data: locationData,
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
-      if (response.ok) {
+      if (response.status === 201) {
         alert("Local cadastrado com sucesso!");
+        reset();
+      } else {
+        alert("Erro ao cadastrar local", response.data);
       }
-      reset();
     } catch (error) {
       console.error("Erro ao cadastrar local:", error);
     }

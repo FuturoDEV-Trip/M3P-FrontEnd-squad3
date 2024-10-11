@@ -6,7 +6,7 @@ import { Card } from "../../components/Cards/Card";
 import { MapMarker } from "../../components/MapMarker/MapMarker";
 import { Sidebar } from "../../components/Sidebar/Sidebar";
 import { Table } from "../../components/Table/Table";
-import { api } from "../../services/api";
+import useAxios from "../../hooks/useAxios";
 import "./Dashboard.css";
 
 function Dashboard() {
@@ -15,35 +15,43 @@ function Dashboard() {
   const [selectedLocation, setSelectedLocation] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await api("/Locais/");
-        if (!response.ok) {
-          throw new Error("Erro ao buscar Locais");
-        }
-        const data = await response.json();
-        setLocais(data);
-      } catch (error) {
-        console.error("Erro ao buscar Locais:", error);
-      }
-    };
+    useAxios("/destinos").then((response) => {
+      setLocais(response.data);
+    });
+    // const fetchData = async () => {
+    //   try {
+    //     const response = await api("/Locais/");
+    //     if (!response.ok) {
+    //       throw new Error("Erro ao buscar Locais");
+    //     }
+    //     const data = await response.json();
+    //     setLocais(data);
+    //   } catch (error) {
+    //     console.error("Erro ao buscar Locais:", error);
+    //   }
+    // };
 
-    fetchData();
+    // fetchData();
   }, []);
   useEffect(() => {
-    const userData = async () => {
-      try {
-        const response = await api("/usuario/");
-        if (!response.ok) {
-          throw new Error("Erro ao buscar usuarios");
-        }
-        const data = await response.json();
-        setUsuarios(data);
-      } catch (error) {
-        console.error("Erro ao buscar usuarios:", error);
-      }
-    };
-    userData();
+    useAxios("dashboard/usuarios").then((response) => {
+      let usuariosLogados = response.data.usuariosLogados;
+      setUsuarios(usuariosLogados);
+      console.log(usuariosLogados);
+    });
+    // const userData = async () => {
+    //   try {
+    //     const response = await api("/usuario/");
+    //     if (!response.ok) {
+    //       throw new Error("Erro ao buscar usuarios");
+    //     }
+    //     const data = await response.json();
+    //     setUsuarios(data);
+    //   } catch (error) {
+    //     console.error("Erro ao buscar usuarios:", error);
+    //   }
+    // };
+    // userData();
   }, []);
 
   const handleRowClick = (lat, lng) => {
@@ -58,8 +66,8 @@ function Dashboard() {
         <h1>Dashboard</h1>
         <div className="containerCards">
           <Card
-            title="Usuários Cadastrados"
-            count={usuarios.length}
+            title="Usuários Ativos"
+            count={usuarios}
             className="card"
           />
           <Card

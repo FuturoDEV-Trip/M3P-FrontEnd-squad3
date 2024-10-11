@@ -9,7 +9,7 @@ export const AuthContext = createContext({
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => {
-    const user = localStorage.getItem("insightViagem365");
+    const user = localStorage.getItem("descubraFloripa");
     return user ? JSON.parse(user) : null;
   });
 
@@ -22,14 +22,18 @@ export function AuthProvider({ children }) {
       });
 
       // const data = await response.json();
+      if (response && response.data) {
+        const { token } = response.data;
+        localStorage.setItem("token", token);
+      }
       const data = response.data;
 
-         if (data.user) {
-           setUser(data.user);
-           localStorage.setItem("insightViagem365", JSON.stringify(data.user));
-           return true;
-         }
-         return false;
+      if (data.user) {
+        setUser(data.user);
+        localStorage.setItem("descubraFloripa", JSON.stringify(data.user));
+        return true;
+      }
+      return false;
 
       // if (data.length > 0) {
       //   const usuario = data[0];
