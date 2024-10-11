@@ -104,6 +104,21 @@
       "bairro": "Jardim Camboinha",
       "cidade": "Cabedelo",
       "estado": "PB"
+    },
+    {
+      "id": "d3e0",
+      "nome": "DAIANE",
+      "sobrenome": "ARRUDA",
+      "cpf": "47474777755",
+      "dataNascimento": "1990-10-14",
+      "sexo": "Feminino",
+      "email": "daianedasilvaarruda@outlook.com",
+      "senha": "12345678",
+      "cep": "85859620",
+      "logradouro": "Rua Cardeal",
+      "bairro": "Portal",
+      "cidade": "Foz do Iguaçu",
+      "estado": "PR"
     }
   ],
   "Locais": [

@@ -8,7 +8,7 @@ import { viaCep } from "../../services/viaCep";
 import "./SignUp.css";
 
 function SignUp() {
-  const { register, handleSubmit, formState, setValue, reset, watch } =
+  const { register, handleSubmit, formState, setValue,watch } =
     useForm();
   const navigate = useNavigate();
   const cep = watch("cep");
@@ -35,6 +35,8 @@ function SignUp() {
       console.error("Erro ao cadastrar usuário:", error);
     }
   }
+
+  useEffect(() => {
   async function addressUser(cep) {
     if (cep && cep.length === 8) {
       try {
@@ -50,35 +52,35 @@ function SignUp() {
     }
   }
 
-  useEffect(() => {
-    addressUser(cep);
-  }, [cep]);
+  addressUser(cep);
+}, [cep, setValue]);
 
   return (
     <>
-      <div className="container-SignUp">
-        <div className="back">
-          <form
-            onSubmit={handleSubmit(addUser)}
-            className="form-container-signup"
-          >
-            <h4>Cadastro InsightViagem365</h4>
-            <div className="form-input-duplo">
-              <input
-                className="input-signup"
-                id="floatingNome"
-                placeholder="Digite o seu nome"
-                {...register("nome", { required: "O nome é obrigatório" })}
-              />
-              <span>{formState.errors?.nome?.message}</span>
-              <input
-                className="input-signup"
-                id="floatingSobreNome"
-                placeholder="Digite o Sobrenome"
-                {...register("sobrenome", { required: "O sobrenome é obrigatório" })}
-              />
-              <span>{formState.errors?.nome?.message}</span>
-            </div>
+    <div className="signup-content">
+      
+      <div className="signup-form">
+            <form onSubmit={handleSubmit(addUser)} className="form-container-signup">
+              <h4>Cadastre-se para viver novas aventuras em Floripa!</h4>
+
+              <div className="form-input-duplo">
+                <input
+                  className="input-signup"
+                  id="floatingNome"
+                  placeholder="Digite o seu nome"
+                  {...register("nome", { required: "O nome é obrigatório" })}
+                />
+                <span>{formState.errors?.nome?.message}</span>
+
+                <input
+                  className="input-signup"
+                  id="floatingSobreNome"
+                  placeholder="Digite o Sobrenome"
+                  {...register("sobrenome", { required: "O sobrenome é obrigatório" })}
+                />
+                <span>{formState.errors?.sobrenome?.message}</span>
+              </div>
+
             <div className="form-input">
               <input
                 className="input-signup"
@@ -91,6 +93,7 @@ function SignUp() {
               />
               <span>{formState.errors?.cpf?.message}</span>
             </div>
+
             <div className="form-input">
               <input
                 type="date"
@@ -129,6 +132,7 @@ function SignUp() {
                 <label className="form-check-label">Masculino</label>
               </div>
             </fieldset>
+
             <div className="form-input">
               <input
                 className="input-signup"
@@ -210,8 +214,10 @@ function SignUp() {
             </button>
           </form>
         </div>
-      </div>
+        <div className="signup-image"></div>
+        </div>
     </>
   );
 }
+
 export default SignUp;
