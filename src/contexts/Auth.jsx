@@ -9,26 +9,41 @@ export const AuthContext = createContext({
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => {
-    const user = localStorage.getItem("insightViagem365");
+    const user = localStorage.getItem("descubraFloripa");
     return user ? JSON.parse(user) : null;
   });
 
   async function signIn({ email, password }) {
     try {
-      const response = await api(`/usuario?email=${email}&senha=${password}`);
-     
-      const data = await response.json();
-     
+      // const response = await api(`/auth/login?email=${email}&senha=${password}`);
+      const response = await api("/auth/login", {
+        method: "POST",
+        data: { email, senha: password },
+      });
 
-      if (data.length > 0) {
-        const usuario = data[0];
-        if (usuario.email === email && usuario.senha === password) {
-          setUser(usuario);
-          localStorage.setItem("insightViagem365", JSON.stringify(usuario));
-          return true;
-        }
+      // const data = await response.json();
+      if (response && response.data) {
+        const { token } = response.data;
+        localStorage.setItem("token", token);
+      }
+      const data = response.data;
+
+      if (data.user) {
+        setUser(data.user);
+        localStorage.setItem("descubraFloripa", JSON.stringify(data.user));
+        return true;
       }
       return false;
+
+      // if (data.length > 0) {
+      //   const usuario = data[0];
+      //   if (usuario.email === email && usuario.senha === password) {
+      //     setUser(usuario);
+      //     localStorage.setItem("insightViagem365", JSON.stringify(usuario));
+      //     return true;
+      //   }
+      // }
+      // return false;
     } catch (error) {
       console.error("Error during sign in:", error);
       return false;

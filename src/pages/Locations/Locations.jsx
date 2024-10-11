@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Sidebar } from "../../components/Sidebar/Sidebar";
 import { useAuth } from "../../contexts/Auth";
-import { api } from "../../services/api";
+import useAxios from "../../hooks/useAxios";
 import "./Locations.css";
 
 function Locations() {
@@ -11,28 +11,31 @@ function Locations() {
   const userId = useAuth();
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await api("/Locais/");
-        if (!response.ok) {
-          throw new Error("Erro ao buscar Locais");
-        }
-        const data = await response.json();
-        setLocais(data);
-      } catch (error) {
-        console.error("Erro ao buscar Locais:", error);
-      }
-    };
-    fetchData();
+    useAxios("/destinos").then((response) => {
+      setLocais(response.data);
+    });
+    // const fetchData = async () => {
+    //   try {
+    //     const response = await api("/Locais/");
+    //     if (!response.ok) {
+    //       throw new Error("Erro ao buscar Locais");
+    //     }
+    //     const data = await response.json();
+    //     setLocais(data);
+    //   } catch (error) {
+    //     console.error("Erro ao buscar Locais:", error);
+    //   }
+    // };
+    // fetchData();
   }, []);
 
   async function deleteLocation(id) {
     try {
-      const locationResponse = await api(`/Locais/${id}`);
+      const locationResponse = await useAxios(`/destinos/${id}`);
       const location = await locationResponse.json();
    
       if (userId.user.id === location.usuarioId) {
-        const response = await api(`/Locais/${id}`, {
+        const response = await useAxios(`/destinos/${id}`, {
           method: "DELETE",
         });
         if (response.ok) {
@@ -61,8 +64,7 @@ function Locations() {
             <tr>
               <th>ID</th>
               <th>Nome do Local</th>
-              <th>Cidade</th>
-              <th>Estado</th>
+              <th>Localização</th>
               <th>Descrição</th>
               <th>Latitude</th>
               <th>Longitude</th>
@@ -73,9 +75,8 @@ function Locations() {
             {Locais.map((item) => (
               <tr key={item.id}>
                 <td>{item.id}</td>
-                <td>{item.local}</td>
-                <td>{item.cidade}</td>
-                <td>{item.estado}</td>
+                <td>{item.destino_nome}</td>
+                <td>{item.localizacao}</td>
                 <td>{item.descricao}</td>
                 <td>{item.latitude}</td>
                 <td>{item.longitude}</td>

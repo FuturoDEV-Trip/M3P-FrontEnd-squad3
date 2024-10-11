@@ -19,7 +19,7 @@ export function Table({ locais, onRowClick }) {
             onClick={() => onRowClick(item.latitude, item.longitude)}
             style={{ cursor: "pointer" }}
           >
-            <td>{item.local}</td>
+            <td>{item.localizacao}</td>
 
             <td>{item.descricao}</td>
           </tr>
