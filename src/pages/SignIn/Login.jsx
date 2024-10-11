@@ -25,6 +25,7 @@ function Login() {
 
   return (
     <div className="row">
+
       <div className="col-md-6 login-section">
         <form className="form-container-login" onSubmit={handleSubmit(userLogin)}>
           <h5>Descubra Floripa</h5>
@@ -52,6 +53,7 @@ function Login() {
               {...register("password")}
             />
           </div>
+          
           <div className="button-form-div">
             <button type="submit" className="btn-login">
               Entrar
