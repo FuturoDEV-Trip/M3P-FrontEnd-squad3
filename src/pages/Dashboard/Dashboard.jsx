@@ -1,15 +1,15 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "leaflet/dist/leaflet.css";
-import { Link } from 'react-router-dom';
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
+import { Link } from 'react-router-dom';
 import { Card } from "../../components/Cards/Card";
 import { MapMarker } from "../../components/MapMarker/MapMarker";
 import { Sidebar } from "../../components/Sidebar/Sidebar";
 import { Table } from "../../components/Table/Table";
+import { AuthContext } from "../../contexts/Auth";
 import useAxios from "../../hooks/useAxios";
 import "./Dashboard.css";
-import axios from 'axios';
 
 function Dashboard() {
   const [Locais, setLocais] = useState([]);
