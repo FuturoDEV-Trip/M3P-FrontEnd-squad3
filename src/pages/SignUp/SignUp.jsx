@@ -8,78 +8,89 @@ import { viaCep } from "../../services/viaCep";
 import "./SignUp.css";
 
 function SignUp() {
-  const { register, handleSubmit, formState, setValue,watch } =
-    useForm();
+  const { register, handleSubmit, formState, setValue, watch } = useForm();
   const navigate = useNavigate();
   const cep = watch("cep");
 
   async function addUser(data) {
     const cpf = data.cpf;
     const email = data.email;
-
+    
     const cpfExists = await validateCPF(cpf);
     const emailExists = await validateEmail(email);
 
     if (cpfExists || emailExists) {
-      return;
+      return console.error("Usuário já cadastrado");
     }
     try {
-      const response = await api("/usuario", {
+      const response = await api("/usuarios/cadastrar", {
         method: "POST",
-        body: JSON.stringify(data),
+        data: data,
       });
-      const result = await response.json();
+      const result = await response.data;
       alert("Usuário cadastrado com sucesso", result);
       navigate("/");
+
     } catch (error) {
-      console.error("Erro ao cadastrar usuário:", error);
-    }
-  }
 
-  useEffect(() => {
-  async function addressUser(cep) {
-    if (cep && cep.length === 8) {
-      try {
-        const data = await viaCep(cep);
-
-        setValue("logradouro", data.logradouro);
-        setValue("bairro", data.bairro);
-        setValue("cidade", data.localidade);
-        setValue("estado", data.uf);
-      } catch (error) {
-        console.error("Erro ao buscar endereço:", error);
+      if (error.response) {
+        console.error("Erro ao cadastrar usuário:", error.response.data);
+        alert(`Erro ao cadastrar usuário: ${error}`);
+      } else {
+        console.error("Erro ao cadastrar usuário:", error);
+        alert("Erro desconhecido ao cadastrar usuário");
       }
     }
   }
 
-  addressUser(cep);
-}, [cep, setValue]);
+  useEffect(() => {
+    async function addressUser(cep) {
+      if (cep && cep.length === 8) {
+        try {
+          const data = await viaCep(cep);
+
+          setValue("logradouro", data.logradouro);
+          setValue("bairro", data.bairro);
+          setValue("cidade", data.localidade);
+          setValue("estado", data.uf);
+        } catch (error) {
+          console.error("Erro ao buscar endereço:", error);
+        }
+      }
+    }
+
+    addressUser(cep);
+  }, [cep, setValue]);
 
   return (
     <>
-    <div className="signup-content">
-      
-      <div className="signup-form">
-            <form onSubmit={handleSubmit(addUser)} className="form-container-signup">
-              <h4>Cadastre-se para viver novas aventuras em Floripa!</h4>
+      <div className="signup-content">
+        <div className="signup-form">
+          <form
+            onSubmit={handleSubmit(addUser)}
+            className="form-container-signup"
+          >
+            <h4>Cadastre-se para viver novas aventuras em Floripa!</h4>
 
-              <div className="form-input-duplo">
-                <input
-                  className="input-signup"
-                  id="floatingNome"
-                  placeholder="Digite o seu nome"
-                  {...register("nome", { required: "O nome é obrigatório" })}
-                />
-                <span>{formState.errors?.nome?.message}</span>
+            <div className="form-input-duplo">
+              <input
+                className="input-signup"
+                id="floatingNome"
+                placeholder="Digite o seu nome"
+                {...register("nome", { required: "O nome é obrigatório" })}
+              />
+              <span>{formState.errors?.nome?.message}</span>
 
-                <input
-                  className="input-signup"
-                  id="floatingSobreNome"
-                  placeholder="Digite o Sobrenome"
-                  {...register("sobrenome", { required: "O sobrenome é obrigatório" })}
-                />
-                <span>{formState.errors?.sobrenome?.message}</span>
-              </div>
+              {/* <input
+                className="input-signup"
+                id="floatingSobreNome"
+                placeholder="Digite o Sobrenome"
+                {...register("sobrenome", {
+                  required: "O sobrenome é obrigatório",
+                })}
+              />
+              <span>{formState.errors?.sobrenome?.message}</span> */}
+            </div>
 
             <div className="form-input">
               <input
@@ -99,7 +110,7 @@ function SignUp() {
                 type="date"
                 className="input-signup"
                 id="floatingDate"
-                {...register("dataNascimento", {
+                {...register("data_nascimento", {
                   required: "O data de nascimento é obrigatório",
                 })}
               />
@@ -215,7 +226,7 @@ function SignUp() {
           </form>
         </div>
         <div className="signup-image"></div>
-        </div>
+      </div>
     </>
   );
 }
