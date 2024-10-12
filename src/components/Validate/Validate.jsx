@@ -35,3 +35,26 @@ export async function validateEmail(email) {
     return false;
   }
 }
+  export async function validateSenha(senha) {
+    if (!(senha.length >= 8) || !(senha.length <= 16)) {
+      return false;
+    }
+
+    if (!senha.match(/\d/)) {
+      return false;
+    }
+
+    if (!senha.match(/[a-z]/)) {
+      return false;
+    }
+
+    if (!senha.match(/[A-Z]/)) {
+      return false;
+    }
+
+    if (!senha.match(/[\W_]/)) {
+      return false;
+    }
+
+    return true;
+  }
