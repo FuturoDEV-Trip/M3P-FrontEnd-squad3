@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { validateCPF, validateEmail } from "../../components/Validate/Validate";
-import useAxios from "../../hooks/useAxios";
+import { api } from "../../services/api";
 import { viaCep } from "../../services/viaCep";
 import "./SignUp.css";
 
@@ -15,7 +15,7 @@ function SignUp() {
   async function addUser(data) {
     const cpf = data.cpf;
     const email = data.email;
-
+    
     const cpfExists = await validateCPF(cpf);
     const emailExists = await validateEmail(email);
 
@@ -23,7 +23,7 @@ function SignUp() {
       return console.error("Usuário já cadastrado");
     }
     try {
-      const response = await useAxios("/usuarios/cadastrar", {
+      const response = await api("/usuarios/cadastrar", {
         method: "POST",
         data: data,
       });
