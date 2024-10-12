@@ -6,7 +6,7 @@ import {
   User,
 } from "lucide-react";
 import { Link, Navigate, Outlet } from "react-router-dom";
-import logo from "../../../images/logo-InsightViagem365.png";
+import logo from "../../../images/descubra-floripa.png";
 import { useAuth } from "../../contexts/Auth";
 
 export function Sidebar() {
