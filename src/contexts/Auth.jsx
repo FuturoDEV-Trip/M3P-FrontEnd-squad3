@@ -49,7 +49,31 @@ export function AuthProvider({ children }) {
       return false;
     }
   }
-  function signOut() {
+  async function signOut() {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        console.error("Nenhum token encontrado");
+        return;
+      }
+
+      const response = await api("/auth/logout", {
+        method: "POST",
+        headers: {
+          Authorization: `${token}`,
+        },
+      });
+
+      if (response.status === 200) {
+        localStorage.removeItem("descubraFloripa");
+        localStorage.removeItem("token");
+        setUser(null);
+      } else {
+        console.error("Falha ao deslogar", response);
+      }
+    } catch (error) {
+      console.error("Erro ao tentar deslogar:", error);
+    }
     setUser(null);
   }
 
