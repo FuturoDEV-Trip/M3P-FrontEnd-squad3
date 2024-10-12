@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { validateCPF, validateEmail } from "../../components/Validate/Validate";
+import { validateCPF, validateEmail, validateSenha } from "../../components/Validate/Validate";
 import { api } from "../../services/api";
 import { viaCep } from "../../services/viaCep";
 import "./SignUp.css";
@@ -15,12 +15,18 @@ function SignUp() {
   async function addUser(data) {
     const cpf = data.cpf;
     const email = data.email;
+    const senha = data.senha;
     
     const cpfExists = await validateCPF(cpf);
     const emailExists = await validateEmail(email);
+    const senhaValida = await validateSenha(senha);
 
     if (cpfExists || emailExists) {
       return console.error("Usuário já cadastrado");
+    }
+    if (!senhaValida) {
+      alert("Senha inválida, a senha deve conter de 8 a 16 caracteres, uma letra maiúscula, uma letra minúscula, um número e um caractere especial");
+      return console.error("Senha inválida");
     }
     try {
       const response = await api("/usuarios/cadastrar", {
