@@ -182,7 +182,10 @@ function SignUp() {
               <span>{formState.errors?.cep?.message}</span>
             </div>
 
-            <div className="form-input">
+
+            <div className="form-input-duplo">
+
+            <div className="form-input w-50">
               <input
                 type="text"
                 className="input-signup"
@@ -192,6 +195,19 @@ function SignUp() {
               />
               <span>{formState.errors?.logradouro?.message}</span>
             </div>
+       
+
+            <div className="form-input w-50">
+              <input
+                type="text"
+                className="input-signup"
+                id="floatingNumero"
+                placeholder="Numero"
+                {...register("numero")}
+              />
+              <span>{formState.errors?.numero?.message}</span>
+            </div>
+                  </div>
 
             <div className="form-input">
               <input

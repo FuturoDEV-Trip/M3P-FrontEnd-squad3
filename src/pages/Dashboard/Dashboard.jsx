@@ -3,8 +3,6 @@ import "leaflet/dist/leaflet.css";
 import React, { useContext, useEffect, useState } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { Link } from 'react-router-dom';
-import banner from '../../assets/banner-dashboard.svg';
-import logo from '../../assets/logo-descubra-floripa.png';
 import { Card } from "../../components/Cards/Card";
 import { MapMarker } from "../../components/MapMarker/MapMarker";
 import { Sidebar } from "../../components/Sidebar/Sidebar";
@@ -12,6 +10,9 @@ import { Table } from "../../components/Table/Table";
 import { AuthContext } from "../../contexts/Auth";
 import useAxios from "../../hooks/useAxios";
 import "./Dashboard.css";
+import axios from 'axios';
+import logo from '../../assets/logo-descubra-floripa.png';
+import banner from '../../assets/banner-dashboard.svg';
 
 function Dashboard() {
   const [Locais, setLocais] = useState([]);
@@ -24,7 +25,19 @@ function Dashboard() {
     useAxios("/destinos").then((response) => {
       setLocais(response.data);
     });
-
+    // const fetchData = async () => {
+    //   try {
+    //     const response = await api("/Locais/");
+    //     if (!response.ok) {
+    //       throw new Error("Erro ao buscar Locais");
+    //     }
+    //     const data = await response.json();
+    //     setLocais(data);
+    //   } catch (error) {
+    //     console.error("Erro ao buscar Locais:", error);
+    //   }
+    // };
+ // fetchData();
   }, []);
 
   useEffect(() => {
@@ -33,7 +46,19 @@ function Dashboard() {
       setUsuarios(usuariosLogados);
       console.log(usuariosLogados);
     });
-
+    // const userData = async () => {
+    //   try {
+    //     const response = await api("/usuario/");
+    //     if (!response.ok) {
+    //       throw new Error("Erro ao buscar usuarios");
+    //     }
+    //     const data = await response.json();
+    //     setUsuarios(data);
+    //   } catch (error) {
+    //     console.error("Erro ao buscar usuarios:", error);
+    //   }
+    // };
+    // userData();
   }, []);
 
   const handleRowClick = (lat, lng) => {
@@ -96,12 +121,12 @@ function Dashboard() {
         <div className="containerCards">
           <Card
             title="Usuários Ativos"
-            count={usuarios.length === 0 ? 0 : usuarios}
+            count={usuarios}
             className="card"
           />
           <Card
             title="Locais Cadastrados"
-            count={Locais.length || 0}
+            count={Locais.length}
             className="card"
           />
 

@@ -1,5 +1,5 @@
 .container-form {
-  background-color: #f1e0d6;
+  background-color: #A8D5E2 ;
   display: flex;
   height: 100vh;
 }
@@ -15,16 +15,18 @@
   width: 100%;
 }
 .titulo {
-  color: #bf988f;
+  color: #ffffff;
   font-size: 24px;
   text-align: center;
   width: 100%;
 }
+
 .elements-sidebar{
-  background-color: #595775;
-  color: #f1e0d6;
+  background-color: #104911;
+  color: #ffffff;
   padding: 25px;
 }
+
 .form-container .col-sm-4 {
   flex: 1 1 calc(33.3333% - 15px);
   display: flex;
@@ -50,7 +52,7 @@
   width: 100%;
   padding: 12px;
   font-size: 20px;
-  background-color: #bf988f;
+  background-color: #548C2F;
   color: #f1e0d6;
   border: none;
   border-radius: 4px;
@@ -63,8 +65,8 @@
 }
 
 .form-container button:hover {
-  background-color: #595775;
-  color: #bf988f;
+  background-color: #F9A620;
+  color: #fff;
 }
 
 textarea.form-control {

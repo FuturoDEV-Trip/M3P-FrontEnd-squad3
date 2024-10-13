@@ -9,16 +9,27 @@
 .sidebar {
   flex: 0.25;
   height: 100vh;
-  background-color: #104911;
-  color: #f1e0d6;
-  padding: 20px;
+  background-color: #104911 ;
+  color: #ffffff;
+}
+
+.sidebar-logo {
+  height: 125px;
+  width: 125px;
+  border-radius: 100%;
+  margin: 0.5em 0;
 }
 
 .elements-sidebar{
-padding: 5px;
 display: flex;
 flex-direction: column;
-gap: 30px;
+gap: 2em;
+background-color: #104911 ;
+color: #ffffff;
+flex-wrap: wrap;
+height: 1300px;
+text-decoration: none;
+text-transform: none;
 }
 
 .main-content {
@@ -34,34 +45,27 @@ gap: 30px;
 }
 
 .titleAndLogin{
-
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
 .titleAndLogin a{
-
   text-decoration: none;
-
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   font-size: 20px;
-
   color: #104911;
 }
 
 .dashboardAlinhamento{
-
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .dashboardAlinhamento a:hover + .tittleAndLoginDashboardDeco{
-
   transition: 0.3s;
-
   width: 105px;
   height: 2px;
 }
@@ -123,27 +127,20 @@ gap: 30px;
 }
 
 .blogAlinhamento a:hover + .tittleAndLoginBlogDeco{
-
   transition: 0.3s;
-
   width: 40px;
   height: 2px;
 }
 
 .blogAlinhamento a:not(:hover) + .tittleAndLoginBlogDeco{
-
   transition: 0.3s;
-
   width: 0px;
 }
 
 .tittleAndLoginBlogDeco{
-
   width: 0px;
   height: 2px;
-
   border-radius: 10px;
-
   background-color: #F9A620;
 }
 
@@ -156,15 +153,12 @@ h1 {
 }
 
 .container-banner{
-
   display: flex;
   justify-content: center;
-
   height: 600px;
 }
 
 .container-banner img{
-
   width: 1038px;
 }
 
@@ -182,11 +176,9 @@ h1 {
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   flex: 1;
-  
 }
 
 .card h3{
-
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
 }
@@ -206,15 +198,12 @@ h1 {
 }
 
 .titleTableAndMap h4{
-
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
-
   color: #104911;
 }
 
 .ajustar-alinhamento-locais-cadastrados{
-
   margin-right: 50px;
 }
 
@@ -245,58 +234,37 @@ h1 {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar-logo{
 
-  height: 125px;
-  width: 125px;
-  margin-left: 50px;
-
-}
 
 .botao_login_dashboard{
-
   text-decoration: none;
-
   width: 200px;
   height: 50px;
-
   cursor: pointer;
-
   border: 1px solid #548C2F;
   border-radius: 10px;
-
   color: #f5f5f5;
   background-color: #548C2F;
 }
 
 .botao_login_dashboard:hover{
-
   transition: 0.3s;
-
   color: #f5f5f5;
   background-color: #104911;
 }
 
 .rodape{
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   height: 50px;
-
   background-color: #104911;
 }
 
 .rodape p{
-
   margin-top: 25px;
-
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   font-size: 20px;
-
   color: #f5f5f5;
 }
-
-
