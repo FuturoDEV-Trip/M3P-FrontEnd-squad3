@@ -118,6 +118,10 @@ function Dashboard() {
 
         </div>
 
+        <div className="titulodashboard">
+          <h2>Dashboard</h2>
+        </div>
+
         <div className="containerCards">
           <Card
             title="Usuários Ativos"

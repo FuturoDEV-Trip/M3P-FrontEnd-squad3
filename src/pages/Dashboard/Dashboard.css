@@ -166,6 +166,23 @@ h1 {
   display:flex;
   margin: 1em 4em;
 }
+
+.titulodashboard{
+
+  display: flex;
+  justify-content: center;
+}
+
+.titulodashboard h2{
+
+  margin-top: 25px;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+
+  color: #104911;
+}
+
 .card {
   height: auto;
   width: 25%;
