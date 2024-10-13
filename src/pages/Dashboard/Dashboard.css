@@ -9,9 +9,14 @@
 .sidebar {
   flex: 0.25;
   height: 100vh;
-  background-color: #104911;
-  color: #f1e0d6;
-  padding: 20px;
+  background-color: #104911 ;
+  color: #ffffff;
+}
+
+.sidebar-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
 }
 
 .elements-sidebar{
@@ -298,5 +303,3 @@ h1 {
 
   color: #f5f5f5;
 }
-
-

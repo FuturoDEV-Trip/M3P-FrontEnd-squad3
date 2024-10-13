@@ -15,15 +15,18 @@
   width: 100%;
 }
 .titulo {
+  color: #ffffff;
   font-size: 24px;
   text-align: center;
   width: 100%;
 }
+
 .elements-sidebar{
-  background-color: #595775;
+  background-color: #104911;
   color: #f1e0d6;
   padding: 25px;
 }
+
 .form-container .col-sm-4 {
   flex: 1 1 calc(33.3333% - 15px);
   display: flex;

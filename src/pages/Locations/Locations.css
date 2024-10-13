@@ -1,5 +1,5 @@
 .container-List {
-  background-color: #A8D5E2;
+  background-color: #ffffff;
   display: flex;
   flex-direction: row; 
   min-height: 100vh; 
@@ -8,8 +8,8 @@
 }
 
 .list-elements-sidebar {
-  background-color: #595775;
-  color: #f1e0d6;
+  background-color: #104911 ;
+  color: #ffffff;
   padding: 25px;
   flex-shrink: 0;
   width: 250px; 
