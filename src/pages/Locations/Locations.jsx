@@ -45,7 +45,6 @@ function Locations() {
     try {
       const locationResponse = await useAxios(`/destinos/${id}`);
       const location = await locationResponse.data;
-      console.log(location);
       if (user.id === location.usuario_id) {
         navigate(`/dashboard/locais/${id}`);
         const response = await useAxios(`/destinos/${id}`, {
