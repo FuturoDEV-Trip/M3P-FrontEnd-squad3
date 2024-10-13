@@ -1,21 +1,17 @@
 .container-dashboard {
-  background-color: #A8D5E2 ;
+  background-color: #f5f5f5;;
   display: flex;
   height: 100vh;
   width: 100%;
+  padding: 20px;
 }
 
 .sidebar {
-  flex: 0,5;
+  flex: 0.25;
   height: 100vh;
-  background-color: #595775;
+  background-color: #104911;
   color: #f1e0d6;
-}
-
-.sidebar-logo {
-  width: 120px;
-  height: 120px;
-  border-radius: 100%;
+  padding: 20px;
 }
 
 .elements-sidebar{
@@ -30,27 +26,146 @@ gap: 30px;
   width: 100%;
   display:flex;
   flex-direction: column;
-  padding: 10px;
-  margin-top: 2em;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 0px;
 }
 
 .titleAndLogin{
-  width: 80%;
+
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.titleAndLogin a{
+
+  text-decoration: none;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+
+  color: #104911;
+}
+
+.dashboardAlinhamento{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboardAlinhamento a:hover + .tittleAndLoginDashboardDeco{
+
+  transition: 0.3s;
+
+  width: 105px;
+  height: 2px;
+}
+
+.dashboardAlinhamento a:not(:hover) + .tittleAndLoginDashboardDeco{
+
+  transition: 0.3s;
+
+  width: 0px;
+}
+
+.tittleAndLoginDashboardDeco{
+
+  width: 0px;
+  height: 2px;
+
+  border-radius: 10px;
+
+  background-color: #F9A620;
+}
+
+.sobreNosAlinhamento{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sobreNosAlinhamento a:hover + .tittleAndLoginSobreNosDeco{
+
+  transition: 0.3s;
+
+  width: 100px;
+  height: 2px;
+}
+
+.sobreNosAlinhamento a:not(:hover) + .tittleAndLoginSobreNosDeco{
+
+  transition: 0.3s;
+
+  width: 0px;
+}
+
+.tittleAndLoginSobreNosDeco{
+
+  width: 0px;
+  height: 2px;
+
+  border-radius: 10px;
+
+  background-color: #F9A620;
+}
+
+.blogAlinhamento{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blogAlinhamento a:hover + .tittleAndLoginBlogDeco{
+
+  transition: 0.3s;
+
+  width: 40px;
+  height: 2px;
+}
+
+.blogAlinhamento a:not(:hover) + .tittleAndLoginBlogDeco{
+
+  transition: 0.3s;
+
+  width: 0px;
+}
+
+.tittleAndLoginBlogDeco{
+
+  width: 0px;
+  height: 2px;
+
+  border-radius: 10px;
+
+  background-color: #F9A620;
 }
 
 h1 {
   text-align: start;
   margin-left: 2em;
-  color: #FFD449;
-  text-transform: uppercase;
-  text-shadow: 5px 5px 6px #548C2F;
+  color: #548C2F;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
-h4{
-  color: #548C2F!important;
-  text-shadow: 2px 2px 4px #FFD449;
+.container-banner{
+
+  display: flex;
+  justify-content: center;
+
+  height: 600px;
+}
+
+.container-banner img{
+
+  width: 1038px;
 }
 
 .containerCards {
@@ -60,6 +175,20 @@ h4{
 .card {
   height: auto;
   width: 25%;
+  background-color: #FFFFFF;
+  color: #104911;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  
+}
+
+.card h3{
+
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
 }
 .containerTableAndMap {
   width: 90%;
@@ -72,82 +201,102 @@ h4{
 .titleTableAndMap{
   display: flex;
   justify-content: space-around;
+  font-weight: 600;
+  color: #104911;
+}
+
+.titleTableAndMap h4{
+
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+
+  color: #104911;
+}
+
+.ajustar-alinhamento-locais-cadastrados{
+
+  margin-right: 50px;
 }
 
 .tableAndMap{
   display: flex;
-  gap: 1.5em;
+  gap: 20px;
 }
 
 .table-container {
   margin-bottom: 1px;
+  flex: 1;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
 }
 
-.headerContainer {
-  margin-bottom: 1.5rem;
+.mapmarker {
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden; 
 }
 
 .mapContainer {
-  width: 40vw;
-  height: 100%;
-  border-radius: 5px;
-  background-color: #ccd3da;
+  width: 100%;
+  height: 400px; 
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.user {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-end;
-  margin-right: auto;
-  margin-left: 10px;
+
+.sidebar-logo{
+
+  height: 125px;
+  width: 125px;
+  margin-left: 50px;
+
 }
-.home {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-end;
-  margin-right: auto;
-  margin-left: 10px;
-  color: #A8D5E2;
-}
-.home-icon, a{
-  display: flex;
-  gap: 1rem;
-  align-items: flex-end;
-  margin-right: auto;
-  margin-left: 10px;
-  color: #A8D5E2;
-}
-.locations {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-end;
-  color: #A8D5E2;
-  margin-right: auto;
-  margin-left: 10px;
-}
-.exit {
-  display: flex;
-  margin-right: auto;
-  margin-left: 10px;
-  align-items: flex-end;
-  gap: 1rem;
-}
-.logout{
-  background-color: transparent;
-  border: none;
-  color: #A8D5E2;
-  align-items: flex-end;
-  margin-right: auto;
-  margin-left: 10px;
-}
-.mappin {
-  color: #A8D5E2;
-}
-.card {
-  background-color: #104911;
-  color: #F9A620;
-  padding: 20px;
+
+.botao_login_dashboard{
+
+  text-decoration: none;
+
+  width: 200px;
+  height: 50px;
+
+  cursor: pointer;
+
+  border: 1px solid #548C2F;
   border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(88, 62, 46, 0.9);
-  margin: 1rem;
+
+  color: #f5f5f5;
+  background-color: #548C2F;
 }
+
+.botao_login_dashboard:hover{
+
+  transition: 0.3s;
+
+  color: #f5f5f5;
+  background-color: #104911;
+}
+
+.rodape{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 50px;
+
+  background-color: #104911;
+}
+
+.rodape p{
+
+  margin-top: 25px;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+
+  color: #f5f5f5;
+}
+
+

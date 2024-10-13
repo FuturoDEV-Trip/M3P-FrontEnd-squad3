@@ -1,6 +1,6 @@
 import { PenBoxIcon, Trash2 } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Sidebar } from "../../components/Sidebar/Sidebar";
 import { useAuth } from "../../contexts/Auth";
 import useAxios from "../../hooks/useAxios";
@@ -8,37 +8,27 @@ import "./Locations.css";
 
 function Locations() {
   const [Locais, setLocais] = useState([]);
-  const { user } = useAuth(); 
+  const { user } = useAuth();
+ const navigate = useNavigate();
+
   useEffect(() => {
     useAxios("/destinos").then((response) => {
       setLocais(response.data);
     });
-    // const fetchData = async () => {
-    //   try {
-    //     const response = await api("/Locais/");
-    //     if (!response.ok) {
-    //       throw new Error("Erro ao buscar Locais");
-    //     }
-    //     const data = await response.json();
-    //     setLocais(data);
-    //   } catch (error) {
-    //     console.error("Erro ao buscar Locais:", error);
-    //   }
-    // };
-    // fetchData();
+
   }, []);
 
   // Função para deletar um destino
   async function deleteLocation(id) {
     try {
       const locationResponse = await useAxios(`/destinos/${id}`);
-      const location = await locationResponse.json();
-   
-      if (userId.user.id === location.usuarioId) {
+      const location = await locationResponse.data;
+
+      if (user.id === location.usuario_id) {
         const response = await useAxios(`/destinos/${id}`, {
           method: "DELETE",
         });
-        if (response.ok) {
+        if (response.status === 204) {
           const newLocais = Locais.filter((item) => item.id !== id);
           setLocais(newLocais);
           alert("Local excluído com sucesso!");
@@ -51,15 +41,28 @@ function Locations() {
     }
   }
 
-  // Função para lidar com tentativa de edição sem permissão
-  const handleEditPermission = (location) => {
-    if (user.id === location.usuario_id) {
-      return `/dashboard/destinos/${location.id}`;
-    } else {
-      alert("Você não tem permissão para editar este destino.");
-      return "#"; 
+  async function updateLocation(id) {
+    try {
+      const locationResponse = await useAxios(`/destinos/${id}`);
+      const location = await locationResponse.data;
+      console.log(location);
+      if (user.id === location.usuario_id) {
+        navigate(`/dashboard/locais/${id}`);
+        const response = await useAxios(`/destinos/${id}`, {
+          method: "PUT",
+        });
+        if (response.status === 201) {
+          const newLocais = Locais.filter((item) => item.id !== id);
+          setLocais(newLocais);
+          alert("Local atualizado com sucesso!");
+        }
+      } else {
+        alert("Você não tem permissão para atualizar este destino.");
+      }
+    } catch (error) {
+      console.error("Erro ao atualizar destino:", error);
     }
-  };
+  }
 
   return (
     <div className="container-List">
@@ -93,10 +96,13 @@ function Locations() {
                 <td>{item.longitude}</td>
                 <td className="table-icon">
                   {/* Verifica permissão antes de permitir a navegação para a edição */}
-                  <Link to={handleEditPermission(item)}>
+                  <button onClick={() => updateLocation(item.id)} className="delete">
                     <PenBoxIcon size={28} className="pen" id="pen" />
-                  </Link>
-                  <button onClick={() => deleteLocation(item.id)} className="delete">
+                  </button>
+                  <button
+                    onClick={() => deleteLocation(item.id)}
+                    className="delete"
+                  >
                     <Trash2 size={28} />
                   </button>
                 </td>

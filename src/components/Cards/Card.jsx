@@ -1,5 +1,5 @@
-import React from "react";
 import "./Card.css";
+import PropTypes from 'prop-types';
 
 export function Card({ title, count }) {
   return (
@@ -9,3 +9,8 @@ export function Card({ title, count }) {
     </div>
   );
 }
+
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  count: PropTypes.number.isRequired,
+};
