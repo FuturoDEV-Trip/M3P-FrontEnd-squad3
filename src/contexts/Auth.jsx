@@ -48,7 +48,7 @@ export function AuthProvider({ children }) {
       const response = await api("/auth/logout", {
         method: "POST",
         headers: {
-          Authorization: `${token}`,
+          Authorization: ` Bearer ${token}`,
         },
       });
 

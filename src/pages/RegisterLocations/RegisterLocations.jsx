@@ -22,20 +22,6 @@ function RegisterLocation() {
       }
     };
     dataAxios();
-    // const fetchData = async () => {
-    //   try {
-    //     const response = await api("/destinos/");
-    //     if (!response.ok) {
-    //       throw new Error("Erro ao buscar Locais");
-    //     }
-    //     const data = await response.json();
-    //     setLocais(data);
-    //   } catch (error) {
-    //     console.error("Erro ao buscar Locais:", error);
-    //   }
-    // };
-
-    // fetchData();
   }, []);
   const { register, handleSubmit, formState, setValue, reset, watch } =
     useForm();

@@ -82,6 +82,7 @@ function Locations() {
               <th>Descrição</th>
               <th>Latitude</th>
               <th>Longitude</th>
+              <th>Link GoogleMaps</th>
               <th>Ações</th>
             </tr>
           </thead>
@@ -94,6 +95,15 @@ function Locations() {
                 <td>{item.descricao}</td>
                 <td>{item.latitude}</td>
                 <td>{item.longitude}</td>
+                <td>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${item.latitude},${item.longitude}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Ver no Google Maps
+                  </a>
+                </td>
                 <td className="table-icon">
                   {/* Verifica permissão antes de permitir a navegação para a edição */}
                   <button onClick={() => updateLocation(item.id)} className="delete">
