@@ -63,6 +63,7 @@ function RegisterLocation() {
         setValue("estado", response.state);
         setValue("latitude", response.lat);
         setValue("longitude", response.lng);
+        setValue("link", response.link);
       } catch (error) {
         console.error("Erro ao buscar endereço:", error);
       }
