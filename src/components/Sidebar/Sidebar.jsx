@@ -15,7 +15,6 @@ export function Sidebar() {
   return user ? (
     <>
       <div className="elements-sidebar">
-
         <div className="sidebar-logo">
           <h6>InsightViagem365</h6>
           <img
@@ -29,19 +28,25 @@ export function Sidebar() {
           <span>Olá, {user.nome}</span>
         </div>
         <div className="home">
-          <Link to={"/dashboard"}>
+          <Link to={"/dashboard"} style={{ textDecoration: "none" }}>
             <HomeIcon size={28} />
             <span>Home</span>
           </Link>
         </div>
         <div className="locations">
-          <Link to={"/dashboard/tabelaLocais"}>
+          <Link
+            to={"/dashboard/tabelaLocais"}
+            style={{ textDecoration: "none" }}
+          >
             <Table2Icon size={28} className="mappin" />
             <span>Lista Locais</span>
           </Link>
         </div>
         <div className="locations">
-          <Link to={"/dashboard/cadastrarLocais"}>
+          <Link
+            to={"/dashboard/cadastrarLocais"}
+            style={{ textDecoration: "none" }}
+          >
             <MapPinPlus size={28} className="mappin" />
             <span>Cadastro Locais</span>
           </Link>

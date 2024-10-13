@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { validateCPF, validateEmail, validateSenha } from "../../components/Validate/Validate";
-import { api } from "../../services/api";
+import useAxios from "../../hooks/useAxios";
 import { viaCep } from "../../services/viaCep";
 import "./SignUp.css";
 
@@ -29,7 +29,7 @@ function SignUp() {
       return console.error("Senha inválida");
     }
     try {
-      const response = await api("/usuarios/cadastrar", {
+      const response = await useAxios("/usuarios/cadastrar", {
         method: "POST",
         data: data,
       });
@@ -41,7 +41,7 @@ function SignUp() {
 
       if (error.response) {
         console.error("Erro ao cadastrar usuário:", error.response.data);
-        alert(`Erro ao cadastrar usuário: ${error}`);
+        alert(`Erro ao cadastrar usuário`);
       } else {
         console.error("Erro ao cadastrar usuário:", error);
         alert("Erro desconhecido ao cadastrar usuário");
