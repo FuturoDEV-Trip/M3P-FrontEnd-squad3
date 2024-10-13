@@ -4,28 +4,28 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { Form } from "../../components/Form/Form";
 import { Sidebar } from "../../components/Sidebar/Sidebar";
-import { api } from "../../services/api";
+import useAxios from "../../hooks/useAxios";
 
 export function EditLocation() {
   const { id } = useParams();
   const { register, handleSubmit, reset } = useForm();
 
   async function onUpdate(data) {
-    const response = await api(`/Locais/${id}`, {
+    const response = await useAxios(`/destinos/${id}`, {
       method: "PUT",
-      body: JSON.stringify(data),
+      data: data,
     });
-    if (response.ok) {
+    if (response.status === 201) {
       alert("Local atualizado com sucesso!");
     }
   }
   async function recoverLocation() {
     try {
-      const response = await api(`/Locais/${id}`);
-      if (!response.ok) {
+      const response = await useAxios(`/destinos/${id}`);
+      if (!response.status === 400) {
         throw new Error("Erro ao buscar os dados do local");
       }
-      const data = await response.json();
+      const data = await response.data;
       if (data) {
         reset(data);
       }
