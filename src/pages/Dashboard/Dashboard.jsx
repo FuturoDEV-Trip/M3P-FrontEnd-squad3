@@ -11,6 +11,8 @@ import { AuthContext } from "../../contexts/Auth";
 import useAxios from "../../hooks/useAxios";
 import "./Dashboard.css";
 import axios from 'axios';
+import logo from '../../assets/logo-descubra-floripa.png';
+import banner from '../../assets/banner-dashboard.svg';
 
 function Dashboard() {
   const [Locais, setLocais] = useState([]);
