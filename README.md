@@ -1,8 +1,8 @@
 # M3P-FrontEnd-squad3
 
-# DescubraFloripa - Frontend
+# **DescubraFloripa - Frontend**
 
-![Logo ](/src/assets/logo-descubra-floripa.png)
+![Logo ](/src/assets/Introducao.png)
 
 ## Visão:
 
@@ -154,8 +154,27 @@ docker-compose up --build
 ![Estrutura](/src/assets/pagina%20de%20login.png)
 
 * Página Dashboard: Página Principal da Aplicação (Home)
+![Fluxo do usuário no APP](/src/assets/pagina-dashboard-publica.png)
+
+* Página de Dashboard: Privada (Após o login)
+![Dashboard-privado](/src/assets/pagina-dashboard.png)
 
 * Página de Cadastro de novos usuários 
 ![Cadastro](/src/assets/paginacadastroreadme.png)
 
-* Cadastro de Local de visitação em viagens
+* Página Cadastro de Locais de visitação 
+![Cadastro](/src/assets/página-cadastro-locais.png)
+
+* Página Listagem de locais
+![Cadastro](/src/assets/página-listagem-locais.png)
+
+**Versão BackEnd do Projeto:**
+
+https://github.com/FuturoDEV-Trip/M3P-BackEnd-squad3.git
+
+**Contribua:**
+
+"Experimente o projeto e nos dê um feedback! Sua opinião é muito importante."
+
+**Desenvolvido por:** Daiane Arruda, Diego Aquino, Livia S Carvalho, Rayssa Freitas e Roni Rodrigues - Squad3 Floripa Mais Tec
+
