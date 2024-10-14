@@ -1,6 +1,6 @@
 import { PenBoxIcon, Trash2 } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Sidebar } from "../../components/Sidebar/Sidebar";
 import { useAuth } from "../../contexts/Auth";
 import useAxios from "../../hooks/useAxios";
@@ -8,48 +8,61 @@ import "./Locations.css";
 
 function Locations() {
   const [Locais, setLocais] = useState([]);
-  const userId = useAuth();
+  const { user } = useAuth();
+ const navigate = useNavigate();
 
   useEffect(() => {
     useAxios("/destinos").then((response) => {
       setLocais(response.data);
     });
-    // const fetchData = async () => {
-    //   try {
-    //     const response = await api("/Locais/");
-    //     if (!response.ok) {
-    //       throw new Error("Erro ao buscar Locais");
-    //     }
-    //     const data = await response.json();
-    //     setLocais(data);
-    //   } catch (error) {
-    //     console.error("Erro ao buscar Locais:", error);
-    //   }
-    // };
-    // fetchData();
+
   }, []);
 
+  // Função para deletar um destino
   async function deleteLocation(id) {
     try {
       const locationResponse = await useAxios(`/destinos/${id}`);
-      const location = await locationResponse.json();
-   
-      if (userId.user.id === location.usuarioId) {
+      const location = await locationResponse.data;
+
+      if (user.id === location.usuario_id) {
         const response = await useAxios(`/destinos/${id}`, {
           method: "DELETE",
         });
-        if (response.ok) {
+        if (response.status === 204) {
           const newLocais = Locais.filter((item) => item.id !== id);
           setLocais(newLocais);
           alert("Local excluído com sucesso!");
         }
       } else {
-        alert("Você não tem permissão para excluir este local");
+        alert("Você não tem permissão para excluir este destino.");
       }
     } catch (error) {
-      console.error("Erro ao excluir local:", error);
+      console.error("Erro ao excluir destino:", error);
     }
   }
+
+  async function updateLocation(id) {
+    try {
+      const locationResponse = await useAxios(`/destinos/${id}`);
+      const location = await locationResponse.data;
+      if (user.id === location.usuario_id) {
+        navigate(`/dashboard/locais/${id}`);
+        const response = await useAxios(`/destinos/${id}`, {
+          method: "PUT",
+        });
+        if (response.status === 201) {
+          const newLocais = Locais.filter((item) => item.id !== id);
+          setLocais(newLocais);
+          alert("Local atualizado com sucesso!");
+        }
+      } else {
+        alert("Você não tem permissão para atualizar este destino.");
+      }
+    } catch (error) {
+      console.error("Erro ao atualizar destino:", error);
+    }
+  }
+
   return (
     <div className="container-List">
       <div className="list-elements-sidebar">
@@ -57,9 +70,9 @@ function Locations() {
       </div>
       <div className="list-container">
         <div className="titulo-list">
-          <h1>Lista dos locais</h1>
+          <h1>Lista dos Destinos</h1>
         </div>
-        <table className="table table-borderless table-primary custom-table table-hover table-container">
+        <table className="table table-borderless custom-table table-container">
           <thead>
             <tr>
               <th>ID</th>
@@ -68,6 +81,7 @@ function Locations() {
               <th>Descrição</th>
               <th>Latitude</th>
               <th>Longitude</th>
+              <th>Link GoogleMaps</th>
               <th>Ações</th>
             </tr>
           </thead>
@@ -80,16 +94,25 @@ function Locations() {
                 <td>{item.descricao}</td>
                 <td>{item.latitude}</td>
                 <td>{item.longitude}</td>
+                <td>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${item.latitude},${item.longitude}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Ver no Google Maps
+                  </a>
+                </td>
                 <td className="table-icon">
-                  <Link to={`/dashboard/locais/${item.id}`}>
+                  {/* Verifica permissão antes de permitir a navegação para a edição */}
+                  <button onClick={() => updateLocation(item.id)} className="delete">
                     <PenBoxIcon size={28} className="pen" id="pen" />
-                  </Link>
+                  </button>
                   <button
                     onClick={() => deleteLocation(item.id)}
-                    className="btn-delete"
-                    id="btn-delete"
+                    className="delete"
                   >
-                    <Trash2 size={28} className="delete" />
+                    <Trash2 size={28} />
                   </button>
                 </td>
               </tr>
@@ -100,4 +123,5 @@ function Locations() {
     </div>
   );
 }
+
 export default Locations;

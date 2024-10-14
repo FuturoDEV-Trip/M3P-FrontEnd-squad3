@@ -6,7 +6,7 @@ import {
   User,
 } from "lucide-react";
 import { Link, Navigate, Outlet } from "react-router-dom";
-import logo from "../../../images/logo-InsightViagem365.png";
+import logo from "../../../images/descubra-floripa.png";
 import { useAuth } from "../../contexts/Auth";
 
 export function Sidebar() {
@@ -14,13 +14,12 @@ export function Sidebar() {
 
   return user ? (
     <>
-      <div className="elements-sidebar">
-
+      <div className="elements-sidebar elementsDash">
         <div className="sidebar-logo">
-          <h6>InsightViagem365</h6>
+          {/* <h6>Descubra Floripa</h6> */}
           <img
             src={logo}
-            alt="InsightViagem365 Logo"
+            alt="Descubra Floripa Logo"
             className="sidebar-logo"
           />
         </div>
@@ -29,25 +28,31 @@ export function Sidebar() {
           <span>Olá, {user.nome}</span>
         </div>
         <div className="home">
-          <Link to={"/dashboard"}>
-            <HomeIcon size={28} />
-            <span>Home</span>
+          <Link  to={"/dashboard"} style={{ textDecoration: "none" }}>
+            <HomeIcon size={28} className="links"/>
+            <span className="links">Home</span>
           </Link>
         </div>
         <div className="locations">
-          <Link to={"/dashboard/tabelaLocais"}>
-            <Table2Icon size={28} className="mappin" />
-            <span>Lista Locais</span>
+          <Link
+            to={"/dashboard/tabelaLocais"}
+            style={{ textDecoration: "none" }}
+          >
+            <Table2Icon size={28} className="mappin links" />
+            <span className="links">Lista Locais</span>
           </Link>
         </div>
         <div className="locations">
-          <Link to={"/dashboard/cadastrarLocais"}>
-            <MapPinPlus size={28} className="mappin" />
-            <span>Cadastro Locais</span>
+          <Link
+            to={"/dashboard/cadastrarLocais"}
+            style={{ textDecoration: "none" }}
+          >
+            <MapPinPlus size={28} className="mappin links" />
+            <span className="links">Cadastro Locais</span>
           </Link>
         </div>
         <div className="exit">
-          <button onClick={signOut} className="logout">
+          <button onClick={signOut} className="logout buttonSair">
             <LogOut size={28} /> Sair
           </button>
           {/* <span > Sair</span> */}

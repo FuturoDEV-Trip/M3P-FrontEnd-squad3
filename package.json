@@ -1,5 +1,5 @@
 {
-  "name": "insightviagem365",
+  "name": "Descubra Floripa",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -15,16 +15,18 @@
     "bootstrap": "^5.3.3",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.418.0",
+    "props": "^0.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.52.1",
     "react-leaflet": "^4.2.1",
-    "react-router-dom": "^6.26.0"
+    "react-router-dom": "^6.26.0",
+    "types": "^0.1.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@vitejs/plugin-react": "^4.3.2",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-hooks": "^4.6.2",

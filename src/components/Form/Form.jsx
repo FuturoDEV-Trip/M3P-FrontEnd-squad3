@@ -22,7 +22,7 @@ export function Form({
               {...register("cep")}
             />
           </div>
-          <div className="col-sm-4">
+          {/* <div className="col-sm-4">
             <input
               type="text"
               className="form-control"
@@ -30,8 +30,17 @@ export function Form({
               aria-label="Local"
               {...register("local")}
             />
-          </div>
+          </div> */}
           <div className="col-sm-4">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Local, Bairro, Cidade - Estado"
+              aria-label="Local"
+              {...register("localizacao")}
+            />
+          </div>
+          {/* <div className="col-sm-4">
             <input
               type="text"
               className="form-control"
@@ -39,8 +48,8 @@ export function Form({
               aria-label="Cidade"
               {...register("cidade")}
             />
-          </div>
-          <div className="col-sm-4">
+          </div> */}
+          {/* <div className="col-sm-4">
             <input
               type="text"
               className="form-control"
@@ -48,7 +57,7 @@ export function Form({
               aria-label="Estado"
               {...register("estado")}
             />
-          </div>
+          </div> */}
           <div className="col-sm-4">
             <input
               type="text"

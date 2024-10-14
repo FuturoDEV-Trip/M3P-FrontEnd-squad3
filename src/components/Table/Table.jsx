@@ -4,7 +4,7 @@ import "./Table.css";
 
 export function Table({ locais, onRowClick }) {
   return (
-    <table className="table table-borderless table-primary table-hover table-container">
+    <table className="table table-borderless table-primary  table-container">
       <thead>
         <tr>
           <th>Nome do Local</th>
