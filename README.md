@@ -1,6 +1,6 @@
 # M3P-FrontEnd-squad3
 
-<img src="https://github.com/user-attachments/assets/63868f0a-f995-4f41-902b-87b95ac0cfce" alt="Logo Descubra Floripa" width="80"/> #DescubraFloripa - Frontend
+<img src="https://github.com/user-attachments/assets/63868f0a-f995-4f41-902b-87b95ac0cfce" alt="Logo Descubra Floripa" width="80"/> # DescubraFloripa - Frontend
 
 ## Visão:
 
