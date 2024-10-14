@@ -154,16 +154,13 @@ function Dashboard() {
               </MapContainer>
             </div>
           </div>
+      </div>        
+
       <div className="rodape">
       
         <p>Desenvolvido por Squad 3</p>
 
       </div>
-      </div>
-
-
-        
-
       </div>
     </div>
   );

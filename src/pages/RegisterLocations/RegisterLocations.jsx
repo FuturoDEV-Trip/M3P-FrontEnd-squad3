@@ -75,12 +75,13 @@ function RegisterLocation() {
   return (
     <>
       <div className="container-form">
-        <div className="elements-sidebar">
+        <div>
           <Sidebar className="sidebar" />
         </div>
-        <div className="form-container">
+
+        <div className="form-container-pai">
+            <h1>Cadastro de Locais</h1>
           <div className="titulo">
-            <h1>Cadastro Locais</h1>
           </div>
           <Form
             register={register}
