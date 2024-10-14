@@ -14,12 +14,12 @@ export function Sidebar() {
 
   return user ? (
     <>
-      <div className="elements-sidebar">
+      <div className="elements-sidebar elementsDash">
         <div className="sidebar-logo">
-          <h6>InsightViagem365</h6>
+          {/* <h6>Descubra Floripa</h6> */}
           <img
             src={logo}
-            alt="InsightViagem365 Logo"
+            alt="Descubra Floripa Logo"
             className="sidebar-logo"
           />
         </div>
@@ -28,9 +28,9 @@ export function Sidebar() {
           <span>Olá, {user.nome}</span>
         </div>
         <div className="home">
-          <Link to={"/dashboard"} style={{ textDecoration: "none" }}>
-            <HomeIcon size={28} />
-            <span>Home</span>
+          <Link  to={"/dashboard"} style={{ textDecoration: "none" }}>
+            <HomeIcon size={28} className="links"/>
+            <span className="links">Home</span>
           </Link>
         </div>
         <div className="locations">
@@ -38,8 +38,8 @@ export function Sidebar() {
             to={"/dashboard/tabelaLocais"}
             style={{ textDecoration: "none" }}
           >
-            <Table2Icon size={28} className="mappin" />
-            <span>Lista Locais</span>
+            <Table2Icon size={28} className="mappin links" />
+            <span className="links">Lista Locais</span>
           </Link>
         </div>
         <div className="locations">
@@ -47,12 +47,12 @@ export function Sidebar() {
             to={"/dashboard/cadastrarLocais"}
             style={{ textDecoration: "none" }}
           >
-            <MapPinPlus size={28} className="mappin" />
-            <span>Cadastro Locais</span>
+            <MapPinPlus size={28} className="mappin links" />
+            <span className="links">Cadastro Locais</span>
           </Link>
         </div>
         <div className="exit">
-          <button onClick={signOut} className="logout">
+          <button onClick={signOut} className="logout buttonSair">
             <LogOut size={28} /> Sair
           </button>
           {/* <span > Sair</span> */}

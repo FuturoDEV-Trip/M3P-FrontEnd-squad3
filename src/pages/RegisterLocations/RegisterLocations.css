@@ -22,9 +22,83 @@
 }
 
 .elements-sidebar{
-  background-color: #104911;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  background-color: #104911 ;
   color: #ffffff;
-  padding: 25px;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  text-decoration: none;
+  text-transform: none;
+  padding: 15px;
+  flex-shrink: 0;
+  }
+
+.list-elements-sidebar {
+  background-color: #104911 ;
+  color: #ffffff;
+  flex-shrink: 0;
+  height: 100vh; 
+  position: sticky;
+  top: 0;
+}
+
+
+.user {
+ margin-top: 0.5em;
+}
+
+.links{
+  color: #ffffff!important;
+  margin-left:0.5em;
+  transition: transform 0.3s ease;
+}
+
+.links:hover{
+  transform: scale(1.2);
+}
+
+.buttonSair{
+  background-color: #104911;
+  color:#FFF;
+  padding: 0.3em;
+  margin: 1em 2em;
+}
+.buttonSair:hover{
+  background-color: rgb(36, 179, 38);
+}
+
+
+
+.sidebar-logo {
+  height: 125px;
+  width: 125px;
+  border-radius: 100%;
+  margin: 0.5em 0;
+}
+
+
+
+
+.links{
+  color: #ffffff!important;
+  margin-left:0.5em;
+  transition: transform 0.3s ease;
+}
+
+.links:hover{
+  transform: scale(1.2);
+}
+
+.buttonSair{
+  background-color: #104911;
+  color:#FFF;
+  padding: 0.3em;
+  margin: 1em 2em;
+}
+.buttonSair:hover{
+  background-color: rgb(36, 179, 38);
 }
 
 .form-container .col-sm-4 {

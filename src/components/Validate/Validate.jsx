@@ -2,7 +2,7 @@ import { api } from "../../services/api";
 
 export async function validateCPF(cpf) {
   try {
-    const response = await api(`/usuarios/consultar?cpf=${cpf}`, {
+const response = await api(`/usuarios/consultar?cpf=${cpf}`, {
       method: "GET",
     });
     const data = response.data;
