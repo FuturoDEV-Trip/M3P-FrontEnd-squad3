@@ -6,6 +6,7 @@ import { validateCPF, validateEmail, validateSenha } from "../../components/Vali
 import useAxios from "../../hooks/useAxios";
 import { viaCep } from "../../services/viaCep";
 import "./SignUp.css";
+import { api } from "../../services/api";
 
 function SignUp() {
   const { register, handleSubmit, formState, setValue, watch } = useForm();
@@ -29,7 +30,7 @@ function SignUp() {
       return console.error("Senha inválida");
     }
     try {
-      const response = await useAxios("/usuarios/cadastrar", {
+      const response = await api("/usuarios/cadastrar", {
         method: "POST",
         data: data,
       });
