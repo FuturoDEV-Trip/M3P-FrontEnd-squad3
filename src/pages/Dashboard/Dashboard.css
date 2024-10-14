@@ -9,7 +9,7 @@
   flex: 0.25;
   background-color: #104911 ;
   color: #ffffff;
-  min-height: 1340px;
+  min-height: 1365px;
 }
 
 .sidebar-logo {
@@ -45,7 +45,7 @@ z-index: 999;
   flex-direction: column;
   padding-top: 0px;
   padding-bottom: 10px;
-  padding-left: 10px;
+  padding-left: 0px;
   padding-right: 10px;
   margin-top: 0px;
 }
@@ -280,7 +280,10 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 51px;
+ 
+  padding-left: 20px;
+
   background-color: #104911;
 }
 

@@ -5,7 +5,10 @@
   background-color: #104911 ;
   color: #ffffff;
   align-items: center;
-  padding: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 15px;
+  padding-left: 0px;
   flex-wrap: wrap;
   height: 100vh;
   text-decoration: none;
@@ -24,7 +27,7 @@
 
 
 .buttonSair{
-  background-color: #104911;
+  background-color: 
   color:#FFF;
   padding: 0.3em;
   margin: 1em 2em;
@@ -78,15 +81,8 @@ h6{
   margin-left: 10px;
   color: #ffffff;
 }
-.exit {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-end;
-  margin-right: auto;
-  margin-left: 10px;
-  color: #ffffff;
-}
-.logout btn{
+
+.logout button{
   background-color: transparent;
   border: none;
   color: #ffffff;

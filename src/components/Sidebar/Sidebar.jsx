@@ -14,7 +14,7 @@ export function Sidebar() {
 
   return user ? (
     <>
-      <div className="elements-sidebar elementsDash">
+      <div className="elements-sidebar">
         <div className="sidebar-logo">
           {/* <h6>Descubra Floripa</h6> */}
           <img
