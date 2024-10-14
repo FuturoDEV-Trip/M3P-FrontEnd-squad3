@@ -15,7 +15,7 @@ export function EditLocation() {
       method: "PUT",
       data: data,
     });
-    if (response.status === 201) {
+    if (response.status === 200) {
       alert("Local atualizado com sucesso!");
     }
   }
@@ -26,6 +26,7 @@ export function EditLocation() {
         throw new Error("Erro ao buscar os dados do local");
       }
       const data = await response.data;
+      console.log(data);
       if (data) {
         reset(data);
       }
