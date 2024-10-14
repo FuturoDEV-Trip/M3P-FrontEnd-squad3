@@ -2,7 +2,7 @@
 
 # DescubraFloripa - Frontend
 
-![Logo ](/src/assets/logo-descubra-floripa.png)
+<img src="/src/assets/logo-descubra-floripa.png" alt="Logo" width="200"/>
 
 ## Visão:
 
