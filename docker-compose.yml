@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres
+    container_name: meu-servidor-postgres
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: frontend-app
+    ports:
+      - "3000:80" 
+    depends_on:
+      - db
+    environment:
+      - REACT_APP_API_URL=http://localhost:3333
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+volumes:
+  postgres_data:

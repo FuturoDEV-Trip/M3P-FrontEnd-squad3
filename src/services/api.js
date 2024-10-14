@@ -14,6 +14,7 @@ export function api(endpoint, init) {
     return axios({
         method: init.method || 'GET', // Define o método padrão como GET, se não for especificado
         url: url,
+        timeout: 10000,
         headers: init.headers || {},  // Define headers, se houver
         data: init.data || {}, });
 }
