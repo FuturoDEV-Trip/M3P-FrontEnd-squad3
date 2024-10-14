@@ -22,20 +22,6 @@ function RegisterLocation() {
       }
     };
     dataAxios();
-    // const fetchData = async () => {
-    //   try {
-    //     const response = await api("/destinos/");
-    //     if (!response.ok) {
-    //       throw new Error("Erro ao buscar Locais");
-    //     }
-    //     const data = await response.json();
-    //     setLocais(data);
-    //   } catch (error) {
-    //     console.error("Erro ao buscar Locais:", error);
-    //   }
-    // };
-
-    // fetchData();
   }, []);
   const { register, handleSubmit, formState, setValue, reset, watch } =
     useForm();
@@ -69,9 +55,10 @@ function RegisterLocation() {
       try {
         const response = await destiny(cep);
 
-        setValue("local", response.address_name);
-        setValue("logradouro", response.address);
-        setValue("bairro", response.district);
+        // setValue("local", response.address_name);
+        setValue("localizacao", response.destinyLocation);
+        // setValue("logradouro", response.address);
+        // setValue("bairro", response.district);
         setValue("cidade", response.city);
         setValue("estado", response.state);
         setValue("latitude", response.lat);

@@ -3,9 +3,10 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { validateCPF, validateEmail, validateSenha } from "../../components/Validate/Validate";
-import { api } from "../../services/api";
+import useAxios from "../../hooks/useAxios";
 import { viaCep } from "../../services/viaCep";
 import "./SignUp.css";
+import { api } from "../../services/api";
 
 function SignUp() {
   const { register, handleSubmit, formState, setValue, watch } = useForm();
@@ -41,7 +42,7 @@ function SignUp() {
 
       if (error.response) {
         console.error("Erro ao cadastrar usuário:", error.response.data);
-        alert(`Erro ao cadastrar usuário: ${error}`);
+        alert(`Erro ao cadastrar usuário`);
       } else {
         console.error("Erro ao cadastrar usuário:", error);
         alert("Erro desconhecido ao cadastrar usuário");
@@ -182,7 +183,10 @@ function SignUp() {
               <span>{formState.errors?.cep?.message}</span>
             </div>
 
-            <div className="form-input">
+
+            <div className="form-input-duplo">
+
+            <div className="form-input w-50">
               <input
                 type="text"
                 className="input-signup"
@@ -192,6 +196,19 @@ function SignUp() {
               />
               <span>{formState.errors?.logradouro?.message}</span>
             </div>
+       
+
+            <div className="form-input w-50">
+              <input
+                type="text"
+                className="input-signup"
+                id="floatingNumero"
+                placeholder="Numero"
+                {...register("numero")}
+              />
+              <span>{formState.errors?.numero?.message}</span>
+            </div>
+                  </div>
 
             <div className="form-input">
               <input

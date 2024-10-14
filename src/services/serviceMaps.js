@@ -9,7 +9,9 @@ export async function destiny(cep) {
 
             const { lat, lng, address_type, address_name, address, district, city, state } = data;
 
-            return { lat, lng, address_type, address_name, address, district, city, state };
+            const destinyLocation = `${address}, ${district}, ${city} - ${state}`;
+
+            return { lat, lng, address_type, address_name, address, district, city, state, destinyLocation };
 
         } else {
             throw new Error('CEP not found');

@@ -10,6 +10,9 @@ import { Table } from "../../components/Table/Table";
 import { AuthContext } from "../../contexts/Auth";
 import useAxios from "../../hooks/useAxios";
 import "./Dashboard.css";
+import axios from 'axios';
+import logo from '../../assets/logo-descubra-floripa.png';
+import banner from '../../assets/banner-dashboard.svg';
 
 function Dashboard() {
   const [Locais, setLocais] = useState([]);
@@ -79,20 +82,46 @@ function Dashboard() {
           <Sidebar className="elements-sidebar" />
         </div>
       )}
+
       <div className="main-content">
         <div className="titleAndLogin">
-          <h1>Dashboard</h1> 
+      <img src={logo} alt="Logo" className="sidebar-logo" /> {/* Adicionado logo */}
+          
+          <div className="dashboardAlinhamento">
+            <Link to={`/`}>Dashboard</Link>
+            <div className="tittleAndLoginDashboardDeco"></div>
+          </div>
+
+          <div className="sobreNosAlinhamento">
+            <Link to={`/`}>Sobre Nós</Link>
+            <div className="tittleAndLoginSobreNosDeco"></div>
+          </div>
+
+          <div className="blogAlinhamento">
+            <Link to={`/`}>Blog</Link>
+            <div className="tittleAndLoginBlogDeco"></div>
+          </div>
+
           <div>
       {!user && ( // Verifica se o usuário não está logado
        <div>
-      <Link to={'/login'}>
-        <h4>Faça o login aqui</h4>
-      </Link>
+          <button onClick={() => window.location.href=`/login`} className="botao_login_dashboard">Faça seu login</button>
        </div>
          )}
          </div>
 
         </div>
+
+        <div className="container-banner">
+
+          <img src={banner} alt="Banner Dashboard" />
+
+        </div>
+
+        <div className="titulodashboard">
+          <h2>Dashboard</h2>
+        </div>
+
         <div className="containerCards">
           <Card
             title="Usuários Ativos"
@@ -108,7 +137,7 @@ function Dashboard() {
         </div>
         <div className="containerTableAndMap">
           <div className="titleTableAndMap">
-            <h4>Locais Cadastrados</h4> <h4>Mapa</h4>
+            <h4 className="ajustar-alinhamento-locais-cadastrados">Locais Cadastrados</h4> <h4>Mapa</h4>
           </div>
           <div className="tableAndMap">
             <div className="table-container">
@@ -125,7 +154,16 @@ function Dashboard() {
               </MapContainer>
             </div>
           </div>
-        </div>
+      <div className="rodape">
+      
+        <p>Desenvolvido por Squad 3</p>
+
+      </div>
+      </div>
+
+
+        
+
       </div>
     </div>
   );

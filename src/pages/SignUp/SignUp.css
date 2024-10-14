@@ -33,6 +33,11 @@
   width: 100%; 
 }
 
+.enderecoNumero{
+  display: flex;
+  justify-content: space-between;
+}
+
 h4 {
   color: var(--text-color);
   font-size: 1.8rem;
