@@ -1,7 +1,6 @@
 # M3P-FrontEnd-squad3
 
-# DescubraFloripa - Frontend <img src="/src/assets/logo-descubra-floripa.png" alt="Logo" width="100"/>
-
+# DescubraFloripa - Frontend ![logo-descubra-floripa](https://github.com/user-attachments/assets/63868f0a-f995-4f41-902b-87b95ac0cfce)
 
 ## Visão:
 
