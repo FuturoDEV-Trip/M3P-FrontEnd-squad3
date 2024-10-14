@@ -1,6 +1,6 @@
 # M3P-FrontEnd-squad3
 
-<img src="https://github.com/user-attachments/assets/63868f0a-f995-4f41-902b-87b95ac0cfce" alt="Logo Descubra Floripa" width="80"/> # DescubraFloripa - Frontend
+# DescubraFloripa - Frontend 
 
 ## Visão:
 
@@ -87,6 +87,9 @@ Implementar um sistema de gamificação onde os usuários ganham pontos e recomp
 18. Yup é uma biblioteca de validação de esquemas para JavaScript. Ela foi utilizada no projeto para validar formulários, garantindo que os dados inseridos pelos usuários estejam corretos antes de serem enviados ao backend.
 
 19. Vite é uma ferramenta de build rápida para projetos frontend modernos,no projeto "DescubraFloripa", o Vite foi usado para criar e gerenciar o ambiente de desenvolvimento, oferecendo uma experiência mais rápida e leve em comparação com outras ferramentas tradicionais como o Webpack.
+
+# Logotipo:
+<img src="https://github.com/user-attachments/assets/63868f0a-f995-4f41-902b-87b95ac0cfce" alt="Logo Descubra Floripa" width="300"/> 
 
 # Modelagem de banco de dados
 
