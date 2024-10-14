@@ -5,17 +5,41 @@
   background-color: #104911 ;
   color: #ffffff;
   align-items: center;
-  padding: 25px;
+  padding: 15px;
   flex-wrap: wrap;
   height: 100vh;
   text-decoration: none;
   text-transform: none;
 }
+
+.links{
+  color: #ffffff!important;
+  margin-left:0.5em;
+  transition: transform 0.3s ease;
+}
+
+.links:hover{
+  transform: scale(1.2);
+}
+
+
+.buttonSair{
+  background-color: #104911;
+  color:#FFF;
+  padding: 0.3em;
+  margin: 1em 2em;
+}
+.buttonSair:hover{
+  background-color: rgb(36, 179, 38);
+}
+
 .sidebar-logo {
   width: 150px;
   height: 150px;
   border-radius: 100%;
 }
+
+
 h6{
   text-overflow: ellipsis;
   overflow: hidden;
