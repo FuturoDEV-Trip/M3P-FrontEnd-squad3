@@ -8,7 +8,7 @@ import axios from "axios";
  */
 
 export function api(endpoint, init) {
-    const url = 'http://localhost:3000' + endpoint
+    const url = 'https://m3p-backend-squad3-3vsm.onrender.com' + endpoint
 
 
     return axios({
