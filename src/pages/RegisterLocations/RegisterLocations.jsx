@@ -55,10 +55,7 @@ function RegisterLocation() {
       try {
         const response = await destiny(cep);
 
-        // setValue("local", response.address_name);
         setValue("localizacao", response.destinyLocation);
-        // setValue("logradouro", response.address);
-        // setValue("bairro", response.district);
         setValue("cidade", response.city);
         setValue("estado", response.state);
         setValue("latitude", response.lat);
